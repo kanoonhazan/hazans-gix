@@ -53,7 +53,7 @@ const Contact: React.FC = () => {
               <label htmlFor="name" className="block text-sm font-medium text-stone mb-2">Name</label>
               <input
                 type="text"
-                name="user_name"
+                name="name"
                 required
                 className="w-full bg-richBlack border border-bangladeshGreen/50 rounded-lg px-4 py-3 text-antiFlashWhite focus:ring-2 focus:ring-caribbeanGreen focus:border-transparent outline-none transition-all placeholder-stone/30"
                 placeholder="Jane Doe"
@@ -63,7 +63,7 @@ const Contact: React.FC = () => {
               <label htmlFor="email" className="block text-sm font-medium text-stone mb-2">Email</label>
               <input
                 type="email"
-                name="user_email"
+                name="email"
                 required
                 className="w-full bg-richBlack border border-bangladeshGreen/50 rounded-lg px-4 py-3 text-antiFlashWhite focus:ring-2 focus:ring-caribbeanGreen focus:border-transparent outline-none transition-all placeholder-stone/30"
                 placeholder="jane@example.com"
