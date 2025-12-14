@@ -20,29 +20,29 @@ const Home: React.FC = () => {
       <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 mb-32 items-center">
         <div className="lg:col-span-7 space-y-8 opacity-0 animate-fade-in-up">
           {/* Badge */}
-          <div className="inline-flex items-center space-x-2 bg-darkGreen/50 rounded-full px-4 py-1.5 border border-bangladeshGreen/30 mb-2 backdrop-blur-sm">
-            <div className="w-2 h-2 bg-caribbeanGreen rounded-full animate-pulse"></div>
-            <span className="text-caribbeanGreen text-xs font-mono uppercase tracking-widest">System Architecture & Product</span>
+          <div className="inline-flex items-center space-x-2 bg-darkGreen/50 rounded-full px-4 py-1.5 border border-bangladeshGreen/30 mb-2 backdrop-blur-md shadow-lg shadow-caribbeanGreen/5">
+            <div className="w-1.5 h-1.5 bg-caribbeanGreen rounded-full animate-pulse-slow"></div>
+            <span className="text-caribbeanGreen/90 text-[11px] font-mono uppercase tracking-[0.2em]">System Architecture & Product Design</span>
           </div>
 
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-antiFlashWhite leading-tight tracking-tight">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-antiFlashWhite leading-[1.1] tracking-tight">
             Kanoon Hazan
           </h1>
-          <h2 className="text-2xl sm:text-3xl font-medium leading-snug text-stone">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-caribbeanGreen via-mint to-mountainMeadow">
-              Building intelligent systems
+          <h2 className="text-2xl sm:text-3xl font-medium leading-snug text-stone/90">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-caribbeanGreen via-mint to-mountainMeadow font-semibold">
+              Designing intelligence
             </span> <br className="hidden lg:block" />
-            <span className="text-antiFlashWhite">where hardware, software, & humans meet.</span>
+            <span className="text-antiFlashWhite">that connects hardware, code, & people.</span>
           </h2>
-          <p className="text-xl text-stone max-w-2xl leading-relaxed">
-            I bridge the gap between <span className="text-antiFlashWhite font-medium">mechatronics</span>, <span className="text-antiFlashWhite font-medium">interface design</span>, and <span className="text-antiFlashWhite font-medium">software engineering</span>—creating products that work in the real world, not just in isolation.
+          <p className="text-lg md:text-xl text-stone max-w-2xl leading-relaxed">
+            I don’t just write software. I build complete systems—bridging <span className="text-antiFlashWhite font-medium border-b border-caribbeanGreen/30 pb-0.5">mechatronics</span>, <span className="text-antiFlashWhite font-medium border-b border-caribbeanGreen/30 pb-0.5">embedded logic</span>, and <span className="text-antiFlashWhite font-medium border-b border-caribbeanGreen/30 pb-0.5">human experience</span> to solve complex problems in the real world.
           </p>
           <div className="flex flex-wrap gap-4 pt-6">
             <Link to="/work">
-              <Button variant="primary" icon className="shadow-[0_0_20px_rgba(0,204,153,0.2)] hover:shadow-[0_0_30px_rgba(0,204,153,0.4)] transition-shadow">View Work</Button>
+              <Button variant="primary" icon className="shadow-[0_4px_20px_rgba(0,204,153,0.25)] hover:shadow-[0_8px_30px_rgba(0,204,153,0.35)] hover:-translate-y-1 transition-all duration-300">View Work</Button>
             </Link>
             <Link to="/contact">
-              <Button variant="outline" className="backdrop-blur-sm bg-richBlack/30 hover:bg-richBlack/50">Let's Talk</Button>
+              <Button variant="outline" className="backdrop-blur-md bg-richBlack/50 hover:bg-richBlack/80 border-stone/20 hover:border-caribbeanGreen/50">Let's Talk</Button>
             </Link>
           </div>
         </div>
@@ -95,14 +95,14 @@ const Home: React.FC = () => {
       </div>
 
       {/* Positioning Block - Editorial Style */}
-      <div className="mb-32 max-w-5xl opacity-0 animate-fade-in-up delay-300 relative">
-        <div className="hidden md:block absolute -left-8 top-2 bottom-2 w-1 bg-gradient-to-b from-caribbeanGreen via-bangladeshGreen to-transparent rounded-full"></div>
-        <h3 className="text-3xl md:text-5xl font-bold text-antiFlashWhite mb-8 leading-tight">
-          I don’t specialize in a single layer. <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-stone to-stone/40">I specialize in how systems come together.</span>
+      <div className="mb-32 max-w-4xl opacity-0 animate-fade-in-up delay-300 relative pl-8 md:pl-10">
+        <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-caribbeanGreen via-bangladeshGreen to-transparent rounded-full opacity-80"></div>
+        <h3 className="text-3xl md:text-5xl font-bold text-antiFlashWhite mb-6 leading-tight">
+          Specialization is for insects. <br />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-stone to-stone/50">I specialize in the glue between layers.</span>
         </h3>
-        <p className="text-xl md:text-2xl text-stone leading-relaxed max-w-3xl">
-          From automation and embedded systems to UX strategy and mobile applications, I focus on building products that work in the real world—technically, operationally, and for the people using them.
+        <p className="text-lg md:text-xl text-stone leading-relaxed max-w-3xl">
+          Most failures happen at the interfaces—where hardware meets code, or code meets the user. By understanding the constraints of all three, I design systems that are resilient, intuitive, and actually buildable.
         </p>
       </div>
 
@@ -110,28 +110,28 @@ const Home: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-[minmax(180px,auto)] mb-32 relative z-10">
 
         {/* Card: How I Approach Problems */}
-        <div className="col-span-1 md:col-span-2 row-span-1 lg:row-span-2 bg-gradient-to-br from-darkGreen via-richBlack to-richBlack rounded-3xl p-10 border border-bangladeshGreen/30 flex flex-col justify-between hover:border-caribbeanGreen/30 transition-colors duration-500 opacity-0 animate-fade-in-up delay-300 shadow-2xl group relative overflow-hidden">
+        <div className="col-span-1 md:col-span-2 row-span-1 lg:row-span-2 bg-gradient-to-br from-darkGreen via-richBlack to-richBlack rounded-3xl p-10 border border-bangladeshGreen/30 flex flex-col justify-between hover:border-caribbeanGreen/30 transition-all duration-500 opacity-0 animate-fade-in-up delay-300 shadow-2xl group relative overflow-hidden">
           {/* Inner Glow */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-caribbeanGreen/5 rounded-full blur-[80px] group-hover:bg-caribbeanGreen/10 transition-colors"></div>
 
           <div className="relative z-10">
-            <div className="inline-flex items-center justify-center p-3 bg-richBlack/50 rounded-xl mb-6 border border-bangladeshGreen/20 shadow-lg backdrop-blur-md">
+            <div className="inline-flex items-center justify-center p-3.5 bg-richBlack/50 rounded-xl mb-8 border border-bangladeshGreen/20 shadow-lg backdrop-blur-md group-hover:scale-105 transition-transform duration-300">
               <Zap className="text-caribbeanGreen w-6 h-6" />
             </div>
             <h3 className="text-3xl font-bold text-antiFlashWhite mb-6">How I Approach Problems</h3>
-            <div className="space-y-4 text-stone text-lg">
-              <p className="flex items-center"><span className="w-1.5 h-1.5 bg-caribbeanGreen rounded-full mr-3"></span>Start with constraints, not features.</p>
-              <p className="flex items-center"><span className="w-1.5 h-1.5 bg-caribbeanGreen rounded-full mr-3"></span>Look for friction, not aesthetics.</p>
-              <p className="flex items-center"><span className="w-1.5 h-1.5 bg-caribbeanGreen rounded-full mr-3"></span>Design decisions that hold up across realities.</p>
+            <div className="space-y-5 text-stone text-lg">
+              <p className="flex items-center group/item"><span className="w-1.5 h-1.5 bg-caribbeanGreen rounded-full mr-4 group-hover/item:scale-150 transition-transform"></span>Start with constraints, not features.</p>
+              <p className="flex items-center group/item"><span className="w-1.5 h-1.5 bg-caribbeanGreen rounded-full mr-4 group-hover/item:scale-150 transition-transform"></span>Look for friction, not aesthetics.</p>
+              <p className="flex items-center group/item"><span className="w-1.5 h-1.5 bg-caribbeanGreen rounded-full mr-4 group-hover/item:scale-150 transition-transform"></span>Decisions must hold up across realities.</p>
             </div>
           </div>
           <div className="mt-8 pt-6 border-t border-bangladeshGreen/20 relative z-10">
-            <p className="text-antiFlashWhite font-medium text-lg">Good products aren’t just usable—they’re understandable, scalable, and intentional.</p>
+            <p className="text-antiFlashWhite font-medium text-lg opacity-80 group-hover:opacity-100 transition-opacity">Good products aren’t just usable—they’re understandable, scalable, and intentional.</p>
           </div>
         </div>
 
         {/* Card: What I Work Across */}
-        <div className="col-span-1 md:col-span-2 row-span-1 lg:row-span-2 bg-richBlack border border-darkGreen rounded-3xl p-10 flex flex-col justify-between items-start group hover:bg-darkGreen/20 transition-all opacity-0 animate-fade-in-up delay-400 relative overflow-hidden">
+        <div className="col-span-1 md:col-span-2 row-span-1 lg:row-span-2 bg-richBlack border border-darkGreen rounded-3xl p-10 flex flex-col justify-between items-start group hover:bg-darkGreen/20 transition-all duration-500 opacity-0 animate-fade-in-up delay-400 relative overflow-hidden">
           {/* Subtle background glow */}
           <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-mountainMeadow/10 rounded-full blur-3xl"></div>
 
@@ -140,17 +140,17 @@ const Home: React.FC = () => {
               What I Work Across
             </h4>
             <ul className="space-y-4 text-stone w-full mb-8">
-              <li className="flex items-center p-4 rounded-xl bg-darkGreen/20 border border-transparent hover:border-bangladeshGreen/40 hover:bg-darkGreen/40 transition-all duration-300 cursor-default">
-                <Cpu className="w-5 h-5 text-caribbeanGreen mr-4 shrink-0" />
-                <span className="font-medium text-lg">Mechatronics & Automation</span>
+              <li className="flex items-center p-4 rounded-xl bg-darkGreen/20 border border-transparent hover:border-caribbeanGreen/30 hover:bg-darkGreen/40 transition-all duration-300 cursor-default group/list">
+                <Cpu className="w-5 h-5 text-caribbeanGreen mr-4 shrink-0 group-hover/list:scale-110 transition-transform" />
+                <span className="font-medium text-lg group-hover/list:text-antiFlashWhite transition-colors">Mechatronics & Automation</span>
               </li>
-              <li className="flex items-center p-4 rounded-xl bg-darkGreen/20 border border-transparent hover:border-bangladeshGreen/40 hover:bg-darkGreen/40 transition-all duration-300 cursor-default">
-                <Layers className="w-5 h-5 text-caribbeanGreen mr-4 shrink-0" />
-                <span className="font-medium text-lg">Product Design (UX / UI)</span>
+              <li className="flex items-center p-4 rounded-xl bg-darkGreen/20 border border-transparent hover:border-caribbeanGreen/30 hover:bg-darkGreen/40 transition-all duration-300 cursor-default group/list">
+                <Layers className="w-5 h-5 text-caribbeanGreen mr-4 shrink-0 group-hover/list:scale-110 transition-transform" />
+                <span className="font-medium text-lg group-hover/list:text-antiFlashWhite transition-colors">Product Design (UX / UI)</span>
               </li>
-              <li className="flex items-center p-4 rounded-xl bg-darkGreen/20 border border-transparent hover:border-bangladeshGreen/40 hover:bg-darkGreen/40 transition-all duration-300 cursor-default">
-                <Code className="w-5 h-5 text-caribbeanGreen mr-4 shrink-0" />
-                <span className="font-medium text-lg">Software & Mobile Apps</span>
+              <li className="flex items-center p-4 rounded-xl bg-darkGreen/20 border border-transparent hover:border-caribbeanGreen/30 hover:bg-darkGreen/40 transition-all duration-300 cursor-default group/list">
+                <Code className="w-5 h-5 text-caribbeanGreen mr-4 shrink-0 group-hover/list:scale-110 transition-transform" />
+                <span className="font-medium text-lg group-hover/list:text-antiFlashWhite transition-colors">Software & Mobile Apps</span>
               </li>
             </ul>
           </div>
@@ -183,24 +183,35 @@ const Home: React.FC = () => {
             className={`group col-span-1 ${idx === 0 ? 'md:col-span-2' : ''} bg-darkGreen rounded-3xl p-8 border border-bangladeshGreen/30 hover:border-caribbeanGreen/50 transition-all duration-300 flex flex-col justify-between h-full opacity-0 animate-fade-in-up relative overflow-hidden shadow-lg`}
             style={{ animationDelay: `${500 + (idx * 100)}ms` }}
           >
+            {/* Background Image */}
+            <div className="absolute inset-0 z-0">
+              <img
+                src={project.thumbnail}
+                alt={project.title}
+                className="w-full h-full object-cover opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700 ease-out grayscale group-hover:grayscale-0"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-darkGreen via-darkGreen/80 to-darkGreen/30 mix-blend-multiply"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-richBlack/50 to-transparent"></div>
+            </div>
+
             {/* Hover Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-caribbeanGreen/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-caribbeanGreen/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10"></div>
 
             {/* Background Texture on Card */}
-            <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+            <div className="absolute inset-0 opacity-[0.05] bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px] z-10"></div>
 
-            <div className="relative z-10">
+            <div className="relative z-20">
               <div className="flex flex-wrap gap-2 mb-6">
                 {project.tags.map(tag => (
-                  <span key={tag} className="px-2.5 py-1 bg-bangladeshGreen/30 text-mint text-xs rounded-md border border-bangladeshGreen/20 uppercase tracking-wider font-semibold">
+                  <span key={tag} className="px-2.5 py-1 bg-richBlack/60 backdrop-blur-md text-mint text-xs rounded-md border border-white/10 uppercase tracking-wider font-semibold shadow-sm">
                     {tag}
                   </span>
                 ))}
               </div>
-              <h3 className="text-2xl font-bold text-antiFlashWhite mb-3 group-hover:text-caribbeanGreen transition-colors">{project.title}</h3>
-              <p className="text-stone text-sm leading-relaxed line-clamp-3">{project.summary}</p>
+              <h3 className="text-2xl font-bold text-antiFlashWhite mb-3 group-hover:text-caribbeanGreen transition-colors drop-shadow-md">{project.title}</h3>
+              <p className="text-stone/90 text-sm leading-relaxed line-clamp-3 font-medium drop-shadow-sm">{project.summary}</p>
             </div>
-            <div className="mt-8 flex items-center text-sm font-bold text-antiFlashWhite group-hover:text-caribbeanGreen transition-colors relative z-10">
+            <div className="mt-8 flex items-center text-sm font-bold text-antiFlashWhite group-hover:text-caribbeanGreen transition-colors relative z-20">
               View Case Study <ArrowUpRight className="ml-2 w-4 h-4 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </div>
           </Link>
