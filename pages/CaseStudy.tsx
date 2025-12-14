@@ -51,148 +51,196 @@ const CaseStudy: React.FC = () => {
   }
 
   return (
-    <article className="pt-24 pb-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <article className="pt-24 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Back Link */}
       <Link to="/work" className="inline-flex items-center text-stone hover:text-caribbeanGreen mb-12 transition-colors opacity-0 animate-fade-in-up">
         <ArrowLeft className="w-4 h-4 mr-2" /> Back to Projects
       </Link>
 
       {/* Main Header with Gradient Mesh */}
-      <header className="mb-16 border-b border-darkGreen pb-12 opacity-0 animate-fade-in-up delay-100 relative">
+      <header className="mb-16 border-b border-darkGreen pb-12 opacity-0 animate-fade-in-up delay-100 relative grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
         {/* Background Mesh */}
         <div className="absolute top-0 right-0 w-3/4 h-full bg-gradient-to-l from-darkGreen/50 to-transparent -z-10 rounded-l-3xl pointer-events-none"></div>
 
-        <div className="flex flex-wrap gap-2 mb-6">
-          {project.tags.map(tag => (
-            <span key={tag} className="text-mountainMeadow font-mono text-sm tracking-wider uppercase bg-darkGreen/50 px-2 py-1 rounded">
-              {tag}
-            </span>
-          ))}
+        <div className="lg:col-span-7">
+          <div className="flex flex-wrap gap-2 mb-6">
+            {project.tags.map(tag => (
+              <span key={tag} className="text-mountainMeadow font-mono text-sm tracking-wider uppercase bg-darkGreen/50 px-2 py-1 rounded">
+                {tag}
+              </span>
+            ))}
+          </div>
+          <h1 className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-caribbeanGreen via-mint to-mountainMeadow mb-6 leading-tight pb-2">
+            {project.title}
+          </h1>
+          <p className="text-xl md:text-2xl text-stone leading-relaxed max-w-3xl">
+            {project.summary}
+          </p>
         </div>
-        <h1 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-caribbeanGreen via-mint to-mountainMeadow mb-6 leading-tight pb-2">
-          {project.title}
-        </h1>
-        <p className="text-xl md:text-2xl text-stone leading-relaxed max-w-3xl">
-          {project.summary}
-        </p>
+
+        {/* Hero Actions / Roles */}
+        <div className="lg:col-span-5 flex flex-col justify-end items-start lg:items-end space-y-4">
+          {/* Could add actionable links or role summary here if desired */}
+        </div>
       </header>
 
-      {/* Project Snapshot */}
-      <section className="mb-20 bg-gradient-to-br from-darkGreen/40 to-richBlack rounded-2xl p-8 border border-darkGreen hover:border-bangladeshGreen/50 transition-colors opacity-0 animate-fade-in-up delay-200 shadow-lg">
-        <h2 className="text-caribbeanGreen font-mono text-sm uppercase tracking-widest mb-8 flex items-center">
+      {/* Hero Thumbnail - Widescreen */}
+      {project.thumbnail && (
+        <div className="mb-20 rounded-3xl overflow-hidden border border-darkGreen shadow-2xl shadow-caribbeanGreen/5 opacity-0 animate-fade-in-up delay-150 relative group">
+          <div className="absolute inset-0 bg-gradient-to-t from-richBlack/50 to-transparent z-10"></div>
+          <img
+            src={project.thumbnail}
+            alt={`${project.title} Hero`}
+            className="w-full max-h-[600px] object-cover transform group-hover:scale-105 transition-transform duration-1000 ease-out"
+          />
+        </div>
+      )}
+
+      {/* Project Snapshot - Full Width Grid */}
+      <section className="mb-24 bg-gradient-to-br from-darkGreen/40 to-richBlack rounded-3xl p-8 md:p-12 border border-darkGreen hover:border-bangladeshGreen/50 transition-colors opacity-0 animate-fade-in-up delay-200 shadow-lg">
+        <h2 className="text-caribbeanGreen font-mono text-sm uppercase tracking-widest mb-10 flex items-center">
           <Layers className="w-4 h-4 mr-2" />
           Project Snapshot
         </h2>
-        <div className="grid gap-8">
-          <div className="grid md:grid-cols-4 gap-4">
-            <h3 className="text-sm font-bold text-antiFlashWhite uppercase tracking-wide md:text-right">One-Line Summary</h3>
-            <p className="text-stone md:col-span-3">{project.snapshot.summary}</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="space-y-4">
+            <h3 className="text-sm font-bold text-antiFlashWhite uppercase tracking-wide border-b border-darkGreen/50 pb-2">One-Line Summary</h3>
+            <p className="text-stone text-lg leading-relaxed">{project.snapshot.summary}</p>
           </div>
-          <div className="h-px bg-darkGreen/50 w-full"></div>
-          <div className="grid md:grid-cols-4 gap-4">
-            <h3 className="text-sm font-bold text-antiFlashWhite uppercase tracking-wide md:text-right">Context</h3>
-            <p className="text-stone md:col-span-3">{project.snapshot.context}</p>
+          <div className="space-y-4">
+            <h3 className="text-sm font-bold text-antiFlashWhite uppercase tracking-wide border-b border-darkGreen/50 pb-2">Context</h3>
+            <p className="text-stone text-lg leading-relaxed">{project.snapshot.context}</p>
           </div>
-          <div className="h-px bg-darkGreen/50 w-full"></div>
-          <div className="grid md:grid-cols-4 gap-4">
-            <h3 className="text-sm font-bold text-antiFlashWhite uppercase tracking-wide md:text-right">My Role</h3>
-            <p className="text-stone md:col-span-3">{project.snapshot.role}</p>
+          <div className="space-y-4">
+            <h3 className="text-sm font-bold text-antiFlashWhite uppercase tracking-wide border-b border-darkGreen/50 pb-2">My Role</h3>
+            <p className="text-stone text-lg leading-relaxed">{project.snapshot.role}</p>
           </div>
         </div>
       </section>
 
-      {/* The Problem */}
-      <section className="mb-20 opacity-0 animate-fade-in-up delay-300">
-        <h2 className="text-caribbeanGreen font-mono text-sm uppercase tracking-widest mb-6">The Problem</h2>
-        <div className="prose prose-lg prose-invert max-w-none">
-          <p className="text-antiFlashWhite font-medium text-xl leading-relaxed">
-            {project.problem.content}
+      {/* Main Content Grid - Agency Layout */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 mb-32">
+
+        {/* The Problem */}
+        <div className="lg:col-span-4 opacity-0 animate-fade-in-up delay-300">
+          <h2 className="text-caribbeanGreen font-mono text-sm uppercase tracking-widest sticky top-32">The Problem</h2>
+        </div>
+        <div className="lg:col-span-8 opacity-0 animate-fade-in-up delay-300">
+          <div className="prose prose-xl prose-invert max-w-none">
+            <p className="text-antiFlashWhite font-medium leading-relaxed">
+              {project.problem.content}
+            </p>
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className="col-span-full h-px bg-darkGreen/30 my-8"></div>
+
+        {/* Constraints & Context */}
+        <div className="lg:col-span-4 opacity-0 animate-fade-in-up delay-300">
+          <h2 className="text-caribbeanGreen font-mono text-sm uppercase tracking-widest sticky top-32">Constraints & Context</h2>
+        </div>
+        <div className="lg:col-span-8 opacity-0 animate-fade-in-up delay-300">
+          <p className="text-stone text-lg mb-8 leading-relaxed">{project.constraints.content}</p>
+          <ul className="space-y-4">
+            {project.constraints.bulletPoints?.map((point, i) => (
+              <li key={i} className="flex items-start bg-richBlack/50 p-5 rounded-xl border border-darkGreen/80 hover:border-bangladeshGreen/50 transition-colors">
+                <span className="mr-4 text-mountainMeadow mt-1 text-lg">▹</span>
+                <span className="text-stone text-lg">{point}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Divider */}
+        <div className="col-span-full h-px bg-darkGreen/30 my-8"></div>
+
+        {/* Key Decisions */}
+        <div className="lg:col-span-4 opacity-0 animate-fade-in-up delay-300">
+          <h2 className="text-caribbeanGreen font-mono text-sm uppercase tracking-widest sticky top-32">Key Decisions</h2>
+        </div>
+        <div className="lg:col-span-8 opacity-0 animate-fade-in-up delay-300">
+          <div className="bg-gradient-to-r from-darkGreen/20 to-transparent border-l-4 border-caribbeanGreen pl-8 py-6 mb-8 rounded-r-xl">
+            <p className="text-xl italic text-stone">"Strategic trade-offs define the system."</p>
+          </div>
+          <p className="text-stone text-lg leading-relaxed whitespace-pre-line">
+            {project.decisions.content}
           </p>
         </div>
-      </section>
 
-      {/* Constraints & Context */}
-      <section className="mb-20 opacity-0 animate-fade-in-up delay-300">
-        <h2 className="text-caribbeanGreen font-mono text-sm uppercase tracking-widest mb-6">Constraints & Context</h2>
-        <p className="text-stone text-lg mb-6 leading-relaxed">{project.constraints.content}</p>
-        <ul className="space-y-4">
-          {project.constraints.bulletPoints?.map((point, i) => (
-            <li key={i} className="flex items-start bg-richBlack/50 p-4 rounded-lg border border-darkGreen/80 hover:border-bangladeshGreen/50 transition-colors">
-              <span className="mr-4 text-mountainMeadow mt-1">▹</span>
-              <span className="text-stone">{point}</span>
-            </li>
-          ))}
-        </ul>
-      </section>
+        {/* Divider */}
+        <div className="col-span-full h-px bg-darkGreen/30 my-8"></div>
 
-      {/* Key Decisions & Thinking */}
-      <section className="mb-20 opacity-0 animate-fade-in-up delay-300">
-        <h2 className="text-caribbeanGreen font-mono text-sm uppercase tracking-widest mb-6">Key Decisions & Thinking</h2>
-        <div className="bg-gradient-to-r from-darkGreen/20 to-transparent border-l-4 border-caribbeanGreen pl-8 py-6 mb-8 rounded-r-xl">
-          <p className="text-lg italic text-stone">"Rather than redesign everything, I focused on high-impact decision points."</p>
+        {/* Solution */}
+        <div className="lg:col-span-4 opacity-0 animate-fade-in-up delay-300">
+          <h2 className="text-caribbeanGreen font-mono text-sm uppercase tracking-widest sticky top-32">The Solution</h2>
         </div>
-        <p className="text-stone text-lg leading-relaxed whitespace-pre-line">
-          {project.decisions.content}
-        </p>
-      </section>
+        <div className="lg:col-span-8 opacity-0 animate-fade-in-up delay-300">
+          <p className="text-stone text-lg mb-10 leading-relaxed">{project.solution.content}</p>
 
-      {/* Solution */}
-      <section className="mb-20 opacity-0 animate-fade-in-up delay-300">
-        <h2 className="text-caribbeanGreen font-mono text-sm uppercase tracking-widest mb-6">Solution</h2>
-        <p className="text-stone text-lg mb-8 leading-relaxed">{project.solution.content}</p>
+          {/* Visual Artifact Placeholder - Could be replaced by a gallery image if available later */}
+          <div className="w-full h-96 bg-richBlack rounded-2xl border border-darkGreen flex items-center justify-center mb-10 relative overflow-hidden group shadow-2xl">
+            <div className="absolute inset-0 bg-gradient-to-br from-darkGreen/30 to-richBlack"></div>
+            {/* Abstract grid pattern */}
+            <div className="absolute inset-0 opacity-20 bg-[linear-gradient(rgba(0,204,153,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(0,204,153,0.1)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
 
-        {/* Visual Artifact */}
-        <div className="w-full h-80 bg-richBlack rounded-xl border border-darkGreen flex items-center justify-center mb-6 relative overflow-hidden group shadow-2xl">
-          <div className="absolute inset-0 bg-gradient-to-br from-darkGreen/30 to-richBlack"></div>
-          {/* Abstract grid pattern */}
-          <div className="absolute inset-0 opacity-20 bg-[linear-gradient(rgba(0,204,153,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(0,204,153,0.1)_1px,transparent_1px)] bg-[size:20px_20px]"></div>
-
-          <div className="z-10 text-center p-6 bg-richBlack/80 backdrop-blur border border-bangladeshGreen/30 rounded-lg">
-            <p className="text-caribbeanGreen font-mono text-sm mb-2">SYSTEM ARCHITECTURE</p>
-            <p className="text-stone text-xs">[ Visual Artifact / Schematic View ]</p>
+            <div className="z-10 text-center p-8 bg-richBlack/80 backdrop-blur border border-bangladeshGreen/30 rounded-xl">
+              <p className="text-caribbeanGreen font-mono text-sm mb-2">SYSTEM ARCHITECTURE</p>
+              <p className="text-stone text-sm">[ Solution Diagram / Visual ]</p>
+            </div>
           </div>
+
+          {project.solution.bulletPoints && (
+            <div className="grid md:grid-cols-2 gap-4">
+              {project.solution.bulletPoints.map((point, i) => (
+                <div key={i} className="flex items-center text-stone bg-darkGreen/20 p-4 rounded-xl border border-transparent hover:border-darkGreen transition-colors">
+                  <span className="w-2 h-2 bg-caribbeanGreen rounded-full mr-4 shrink-0"></span>
+                  {point}
+                </div>
+              ))}
+            </div>
+          )}
         </div>
 
-        {project.solution.bulletPoints && (
-          <div className="grid md:grid-cols-2 gap-4">
-            {project.solution.bulletPoints.map((point, i) => (
-              <div key={i} className="flex items-center text-stone bg-darkGreen/20 p-3 rounded-lg border border-transparent hover:border-darkGreen transition-colors">
-                <span className="w-1.5 h-1.5 bg-caribbeanGreen rounded-full mr-3 shrink-0"></span>
-                {point}
+        {/* Divider */}
+        <div className="col-span-full h-px bg-darkGreen/30 my-8"></div>
+
+        {/* Impact */}
+        <div className="lg:col-span-4 opacity-0 animate-fade-in-up delay-300">
+          <h2 className="text-caribbeanGreen font-mono text-sm uppercase tracking-widest sticky top-32">Impact & Outcomes</h2>
+        </div>
+        <div className="lg:col-span-8 opacity-0 animate-fade-in-up delay-300">
+          <p className="text-stone text-lg mb-8 leading-relaxed">{project.impact.content}</p>
+          <div className="grid grid-cols-1 gap-4">
+            {project.impact.bulletPoints?.map((point, i) => (
+              <div key={i} className="bg-gradient-to-r from-darkGreen/30 to-richBlack p-6 rounded-2xl border border-darkGreen flex items-start hover:border-caribbeanGreen/30 transition-colors">
+                <span className="text-caribbeanGreen font-bold mr-6 text-2xl font-mono opacity-50">{(i + 1).toString().padStart(2, '0')}</span>
+                <p className="text-stone text-lg">{point}</p>
               </div>
             ))}
           </div>
-        )}
-      </section>
-
-      {/* Impact & Outcomes */}
-      <section className="mb-20 opacity-0 animate-fade-in-up delay-300">
-        <h2 className="text-caribbeanGreen font-mono text-sm uppercase tracking-widest mb-6">Impact & Outcomes</h2>
-        <p className="text-stone text-lg mb-8 leading-relaxed">{project.impact.content}</p>
-        <div className="grid grid-cols-1 gap-4">
-          {project.impact.bulletPoints?.map((point, i) => (
-            <div key={i} className="bg-gradient-to-r from-darkGreen/30 to-richBlack p-5 rounded-xl border border-darkGreen flex items-start hover:border-caribbeanGreen/30 transition-colors">
-              <span className="text-caribbeanGreen font-bold mr-4 text-xl font-mono">{(i + 1).toString().padStart(2, '0')}</span>
-              <p className="text-stone">{point}</p>
-            </div>
-          ))}
         </div>
-      </section>
 
-      {/* Gallery */}
+      </div>
+
+      {/* Gallery - Full Width */}
       {project.gallery && project.gallery.length > 0 && (
-        <section className="mb-20 opacity-0 animate-fade-in-up delay-300">
-          <h2 className="text-caribbeanGreen font-mono text-sm uppercase tracking-widest mb-8 flex items-center">
-            <LayoutGrid className="w-4 h-4 mr-2" /> Gallery
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <section className="mb-32 opacity-0 animate-fade-in-up delay-300 border-t border-darkGreen/50 pt-20">
+          <div className="flex items-center justify-between mb-12">
+            <h2 className="text-caribbeanGreen font-mono text-sm uppercase tracking-widest flex items-center">
+              <LayoutGrid className="w-4 h-4 mr-2" /> Gallery
+            </h2>
+            <span className="text-stone text-sm hidden md:block">Click to expand</span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {project.gallery.map((img, idx) => (
-              <div key={idx} className="relative group rounded-xl overflow-hidden border border-darkGreen bg-richBlack/50">
+              <div key={idx} className="relative group rounded-2xl overflow-hidden border border-darkGreen bg-richBlack/50 aspect-video shadow-lg">
                 <div className="absolute inset-0 bg-caribbeanGreen/5 opacity-0 group-hover:opacity-100 transition-opacity z-10 pointer-events-none"></div>
                 <img
                   src={img}
                   alt={`Project visual ${idx + 1}`}
-                  className="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out opacity-80 group-hover:opacity-100"
+                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out opacity-90 group-hover:opacity-100"
                 />
               </div>
             ))}
@@ -200,12 +248,13 @@ const CaseStudy: React.FC = () => {
         </section>
       )}
 
-      {/* Reflection */}
-      <section className="mb-20 border-t border-darkGreen pt-12 opacity-0 animate-fade-in-up delay-300">
-        <h2 className="text-caribbeanGreen font-mono text-sm uppercase tracking-widest mb-6">Reflection</h2>
-        <div className="bg-bangladeshGreen/5 rounded-2xl p-8 border border-bangladeshGreen/20 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-caribbeanGreen/5 rounded-full blur-2xl transform translate-x-1/2 -translate-y-1/2"></div>
-          <p className="text-stone text-lg leading-relaxed relative z-10">{project.reflection.content}</p>
+      {/* Reflection - Centered Feature */}
+      <section className="mb-32 opacity-0 animate-fade-in-up delay-300 max-w-5xl mx-auto">
+        <h2 className="text-caribbeanGreen font-mono text-sm uppercase tracking-widest mb-8 text-center">Closing Thoughts</h2>
+        <div className="bg-bangladeshGreen/5 rounded-3xl p-10 md:p-16 border border-bangladeshGreen/20 relative overflow-hidden text-center">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-caribbeanGreen/5 rounded-full blur-[100px] transform translate-x-1/2 -translate-y-1/2"></div>
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-caribbeanGreen/5 rounded-full blur-[100px] transform -translate-x-1/2 translate-y-1/2"></div>
+          <p className="text-stone text-xl md:text-2xl leading-relaxed relative z-10 font-medium">{project.reflection.content}</p>
         </div>
       </section>
 
