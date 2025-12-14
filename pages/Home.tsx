@@ -37,7 +37,7 @@ const Home: React.FC = () => {
           {/* Badge */}
           <div className="inline-flex items-center space-x-2 bg-darkGreen/50 rounded-full px-4 py-1.5 border border-bangladeshGreen/30 mb-2 backdrop-blur-md shadow-lg shadow-caribbeanGreen/5">
             <div className="w-1.5 h-1.5 bg-caribbeanGreen rounded-full animate-pulse-slow"></div>
-            <span className="text-caribbeanGreen/90 text-[11px] font-mono uppercase tracking-[0.2em]">System Architecture & Product Design</span>
+            <span className="text-caribbeanGreen/90 text-[11px] font-mono uppercase tracking-[0.2em]">Think - Design - Build</span>
           </div>
 
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-antiFlashWhite leading-[1.1] tracking-tight">
