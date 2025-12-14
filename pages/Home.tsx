@@ -1,10 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { supabase } from '../lib/supabase';
+import { Project } from '../types';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight, Zap, Layers, Cpu, Activity, Code, GitMerge, Globe, Linkedin, Instagram, Facebook, MessageCircle } from 'lucide-react';
 import Button from '../components/Button';
-import { PROJECTS } from '../constants';
 
 const Home: React.FC = () => {
+  const [featuredProjects, setFeaturedProjects] = useState<Project[]>([]);
+
+  useEffect(() => {
+    const fetchFeatured = async () => {
+      const { data } = await supabase
+        .from('projects')
+        .select('*')
+        .order('created_at', { ascending: false })
+        .limit(3);
+      if (data) setFeaturedProjects(data);
+    }
+    fetchFeatured();
+  }, []);
+
   return (
     <div className="relative pt-24 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Subtle Background Grid for Technical Feel */}
@@ -176,7 +191,7 @@ const Home: React.FC = () => {
         </div>
 
         {/* Featured Projects Cards */}
-        {PROJECTS.slice(0, 3).map((project, idx) => (
+        {featuredProjects.map((project, idx) => (
           <Link
             key={project.id}
             to={`/work/${project.id}`}
@@ -284,7 +299,7 @@ const Home: React.FC = () => {
 
       </div>
 
-    </div>
+    </div >
   );
 };
 
