@@ -1,8 +1,40 @@
-import React from 'react';
-import { Mail, Linkedin, Github, Phone, MessageCircle } from 'lucide-react';
+import React, { useRef, useState } from 'react';
+import { Mail, Linkedin, Github, Phone, MessageCircle, Send, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 import Button from '../components/Button';
 
 const Contact: React.FC = () => {
+  const form = useRef<HTMLFormElement>(null);
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
+
+  const sendEmail = (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setSuccess(false);
+    setError(false);
+
+    // REPLACE THESE WITH YOUR ACTUAL EMAILJS KEYS
+    // Sign up at https://www.emailjs.com/
+    const SERVICE_ID = 'service_0wlslgi';
+    const TEMPLATE_ID = 'service_0wlslgi'; // Note: Double check if this is different from Service ID
+    const PUBLIC_KEY = '1XZn9XSheIpOOsqk-';
+
+    if (form.current) {
+      emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
+        .then((result) => {
+          setLoading(false);
+          setSuccess(true);
+          if (form.current) form.current.reset();
+        }, (error) => {
+          console.error(error.text);
+          setLoading(false);
+          setError(true);
+        });
+    }
+  };
+
   return (
     <div className="pt-24 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="max-w-2xl mx-auto text-center mb-16 opacity-0 animate-fade-in-up">
@@ -16,12 +48,13 @@ const Contact: React.FC = () => {
 
         {/* Contact Form */}
         <div className="md:col-span-3 bg-gradient-to-b from-darkGreen to-richBlack rounded-3xl p-8 border border-bangladeshGreen/30 opacity-0 animate-fade-in-up delay-100 shadow-xl">
-          <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+          <form ref={form} className="space-y-6" onSubmit={sendEmail}>
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-stone mb-2">Name</label>
               <input
                 type="text"
-                id="name"
+                name="user_name"
+                required
                 className="w-full bg-richBlack border border-bangladeshGreen/50 rounded-lg px-4 py-3 text-antiFlashWhite focus:ring-2 focus:ring-caribbeanGreen focus:border-transparent outline-none transition-all placeholder-stone/30"
                 placeholder="Jane Doe"
               />
@@ -30,7 +63,8 @@ const Contact: React.FC = () => {
               <label htmlFor="email" className="block text-sm font-medium text-stone mb-2">Email</label>
               <input
                 type="email"
-                id="email"
+                name="user_email"
+                required
                 className="w-full bg-richBlack border border-bangladeshGreen/50 rounded-lg px-4 py-3 text-antiFlashWhite focus:ring-2 focus:ring-caribbeanGreen focus:border-transparent outline-none transition-all placeholder-stone/30"
                 placeholder="jane@example.com"
               />
@@ -38,13 +72,36 @@ const Contact: React.FC = () => {
             <div>
               <label htmlFor="message" className="block text-sm font-medium text-stone mb-2">Message</label>
               <textarea
-                id="message"
+                name="message"
+                required
                 rows={4}
                 className="w-full bg-richBlack border border-bangladeshGreen/50 rounded-lg px-4 py-3 text-antiFlashWhite focus:ring-2 focus:ring-caribbeanGreen focus:border-transparent outline-none transition-all resize-none placeholder-stone/30"
                 placeholder="Tell me about the problem you're solving..."
               ></textarea>
             </div>
-            <Button type="submit" variant="primary" className="w-full shadow-lg shadow-caribbeanGreen/20">Send Message</Button>
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full bg-caribbeanGreen hover:bg-mountainMeadow text-richBlack font-bold py-4 rounded-xl transition-all shadow-[0_4px_20px_rgba(0,204,153,0.2)] hover:shadow-[0_4px_25px_rgba(0,204,153,0.4)] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+            >
+              {loading ? <Loader2 className="animate-spin w-5 h-5 mr-2" /> : <Send className="w-5 h-5 mr-2" />}
+              {loading ? 'Sending...' : 'Send Message'}
+            </button>
+
+            {success && (
+              <div className="flex items-center text-caribbeanGreen bg-caribbeanGreen/10 p-4 rounded-lg border border-caribbeanGreen/20 animate-fade-in-up">
+                <CheckCircle className="w-5 h-5 mr-2" />
+                <span>Message sent successfully! I'll get back to you soon.</span>
+              </div>
+            )}
+
+            {error && (
+              <div className="flex items-center text-red-400 bg-red-400/10 p-4 rounded-lg border border-red-400/20 animate-fade-in-up">
+                <AlertCircle className="w-5 h-5 mr-2" />
+                <span>Something went wrong. Please try again or email me directly.</span>
+              </div>
+            )}
           </form>
         </div>
 
