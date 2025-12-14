@@ -18,11 +18,19 @@ const Contact: React.FC = () => {
     // REPLACE THESE WITH YOUR ACTUAL EMAILJS KEYS
     // Sign up at https://www.emailjs.com/
     const SERVICE_ID = 'service_0wlslgi';
-    const TEMPLATE_ID = 'template_0xz2xyk'; // Note: Double check if this is different from Service ID
+    const TEMPLATE_ID = 'template_0xz2xyk';
     const PUBLIC_KEY = '1XZn9XSheIpOOsqk-';
 
     if (form.current) {
-      emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
+      const formData = new FormData(form.current);
+      const templateParams = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        message: formData.get('message'),
+        title: 'Portfolio Inquiry' // Adding a title since the template expects one
+      };
+
+      emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
         .then((result) => {
           setLoading(false);
           setSuccess(true);
