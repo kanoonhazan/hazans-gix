@@ -57,44 +57,44 @@ const CaseStudy: React.FC = () => {
         <ArrowLeft className="w-4 h-4 mr-2" /> Back to Projects
       </Link>
 
-      {/* Main Header with Gradient Mesh */}
-      <header className="mb-16 border-b border-darkGreen pb-12 opacity-0 animate-fade-in-up delay-100 relative grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
-        {/* Background Mesh */}
-        <div className="absolute top-0 right-0 w-3/4 h-full bg-gradient-to-l from-darkGreen/50 to-transparent -z-10 rounded-l-3xl pointer-events-none"></div>
+      {/* Main Hero Header with Background Image */}
+      <header className="relative min-h-[70vh] flex items-end mb-24 rounded-3xl overflow-hidden shadow-2xl shadow-caribbeanGreen/5 border border-darkGreen opacity-0 animate-fade-in-up delay-100 group">
 
-        <div className="lg:col-span-7">
-          <div className="flex flex-wrap gap-2 mb-6">
-            {project.tags.map(tag => (
-              <span key={tag} className="text-mountainMeadow font-mono text-sm tracking-wider uppercase bg-darkGreen/50 px-2 py-1 rounded">
-                {tag}
-              </span>
-            ))}
+        {/* Background Image */}
+        {project.thumbnail && (
+          <>
+            <img
+              src={project.thumbnail}
+              alt={`${project.title} Background`}
+              className="absolute inset-0 w-full h-full object-cover z-0 transform group-hover:scale-105 transition-transform duration-[2000ms] ease-out"
+            />
+            <div className="absolute inset-0 bg-richBlack/40 z-10 backdrop-blur-[2px]"></div>
+          </>
+        )}
+
+        {/* Gradient Overlays for Readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-richBlack via-richBlack/80 to-transparent z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-richBlack/80 via-transparent to-transparent z-10"></div>
+
+        {/* Content */}
+        <div className="relative z-20 w-full p-8 md:p-12 lg:p-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+          <div className="lg:col-span-9">
+            <div className="flex flex-wrap gap-3 mb-6">
+              {project.tags.map(tag => (
+                <span key={tag} className="text-caribbeanGreen font-mono text-xs tracking-widest uppercase bg-richBlack/80 border border-caribbeanGreen/20 px-3 py-1.5 rounded backdrop-blur-md shadow-lg">
+                  {tag}
+                </span>
+              ))}
+            </div>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-[1.1] tracking-tight drop-shadow-2xl">
+              {project.title}
+            </h1>
+            <p className="text-xl md:text-2xl text-stone/90 leading-relaxed max-w-3xl font-medium drop-shadow-md">
+              {project.summary}
+            </p>
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-caribbeanGreen via-mint to-mountainMeadow mb-6 leading-tight pb-2">
-            {project.title}
-          </h1>
-          <p className="text-xl md:text-2xl text-stone leading-relaxed max-w-3xl">
-            {project.summary}
-          </p>
-        </div>
-
-        {/* Hero Actions / Roles */}
-        <div className="lg:col-span-5 flex flex-col justify-end items-start lg:items-end space-y-4">
-          {/* Could add actionable links or role summary here if desired */}
         </div>
       </header>
-
-      {/* Hero Thumbnail - Widescreen */}
-      {project.thumbnail && (
-        <div className="mb-20 rounded-3xl overflow-hidden border border-darkGreen shadow-2xl shadow-caribbeanGreen/5 opacity-0 animate-fade-in-up delay-150 relative group">
-          <div className="absolute inset-0 bg-gradient-to-t from-richBlack/50 to-transparent z-10"></div>
-          <img
-            src={project.thumbnail}
-            alt={`${project.title} Hero`}
-            className="w-full max-h-[600px] object-cover transform group-hover:scale-105 transition-transform duration-1000 ease-out"
-          />
-        </div>
-      )}
 
       {/* Project Snapshot - Full Width Grid */}
       <section className="mb-24 bg-gradient-to-br from-darkGreen/40 to-richBlack rounded-3xl p-8 md:p-12 border border-darkGreen hover:border-bangladeshGreen/50 transition-colors opacity-0 animate-fade-in-up delay-200 shadow-lg">
