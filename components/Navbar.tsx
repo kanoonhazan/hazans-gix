@@ -16,11 +16,15 @@ const Navbar: React.FC = () => {
     `text-sm font-medium tracking-wide transition-colors duration-200 ${isActive ? 'text-caribbeanGreen' : 'text-stone hover:text-antiFlashWhite'
     }`;
 
+  const handleScrollTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <nav className="fixed top-0 w-full z-50 bg-richBlack/80 backdrop-blur-md border-b border-darkGreen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <NavLink to="/" className="flex items-center space-x-2 group">
+          <NavLink to="/" onClick={handleScrollTop} className="flex items-center space-x-2 group">
             <img src="/images/favicon.png" alt="Hazan's Gix Logo" className="w-8 h-8 object-contain" />
             <span className="font-bold tracking-tight text-lg text-transparent bg-clip-text bg-gradient-to-r from-caribbeanGreen to-mountainMeadow group-hover:brightness-110 transition-all">HAZAN'S GIX</span>
           </NavLink>
