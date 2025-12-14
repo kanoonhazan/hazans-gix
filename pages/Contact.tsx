@@ -18,7 +18,7 @@ const Contact: React.FC = () => {
     // REPLACE THESE WITH YOUR ACTUAL EMAILJS KEYS
     // Sign up at https://www.emailjs.com/
     const SERVICE_ID = 'service_0wlslgi';
-    const TEMPLATE_ID = 'service_0wlslgi'; // Note: Double check if this is different from Service ID
+    const TEMPLATE_ID = 'template_0xz2xyk'; // Note: Double check if this is different from Service ID
     const PUBLIC_KEY = '1XZn9XSheIpOOsqk-';
 
     if (form.current) {
