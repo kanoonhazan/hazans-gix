@@ -130,26 +130,24 @@ const About: React.FC = () => {
             <Database className="w-6 h-6 mr-3 text-caribbeanGreen" /> Technical Toolbox
           </h2>
 
-          <div className="flex bg-darkGreen/20 p-1 rounded-full border border-white/5 backdrop-blur-md overflow-x-auto no-scrollbar max-w-full">
-            <div className="flex space-x-1 min-w-max p-0.5">
-              {categories.map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => setActiveTab(cat)}
-                  className={`px-4 md:px-6 py-2 rounded-full text-[11px] md:text-[13px] font-bold tracking-wide transition-all duration-500 whitespace-nowrap uppercase ${activeTab === cat
-                    ? 'bg-caribbeanGreen text-richBlack shadow-lg shadow-caribbeanGreen/20 scale-105'
-                    : 'text-stone/60 hover:text-antiFlashWhite'
-                    }`}
-                >
-                  {cat.split(' (')[0]}
-                </button>
-              ))}
-            </div>
+          <div className="flex flex-col md:flex-row md:bg-darkGreen/20 md:p-1 md:rounded-full md:border md:border-white/5 md:backdrop-blur-md gap-2 md:gap-1 w-full lg:w-auto">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveTab(cat)}
+                className={`w-full md:w-auto px-6 py-3.5 md:py-2 rounded-xl md:rounded-full text-[13px] font-bold tracking-wide transition-all duration-300 whitespace-nowrap uppercase text-center active:scale-[0.97] hover:scale-[1.02] ${activeTab === cat
+                  ? 'bg-caribbeanGreen text-richBlack shadow-lg shadow-caribbeanGreen/20 ring-1 ring-caribbeanGreen/20'
+                  : 'bg-darkGreen/20 md:bg-transparent text-stone/60 hover:text-antiFlashWhite border border-white/5 md:border-0'
+                  }`}
+              >
+                {cat.split(' (')[0]}
+              </button>
+            ))}
           </div>
         </div>
 
         {/* Tab Content: Flexible Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 transition-all duration-500">
+        <div key={activeTab} className="grid grid-cols-1 md:grid-cols-12 gap-6 transition-all duration-500 animate-fade-in-blur">
 
           {/* Main Context Card */}
           <div className="md:col-span-8 bg-gradient-to-br from-darkGreen/30 to-richBlack p-6 md:p-10 rounded-3xl md:rounded-[2.5rem] border border-white/5 flex flex-col justify-between relative overflow-hidden group shadow-2xl">
