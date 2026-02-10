@@ -25,10 +25,16 @@ const About: React.FC = () => {
       techStack: ['Figma (Advanced)', 'Protopie', 'Storybook', 'Adobe Suite'],
       focus: 'Human-Machine Interface (HMI)',
       highlight: 'Specializing in reducing cognitive load for operators in high-stress, safety-critical environments.',
+      specialization: 'Information Architecture • Atomic Design • Human Factors • Design Systems',
       experience: {
         role: 'Ui/Ux Designer',
         company: 'DiliMatrix',
         period: 'Oct 2023 - May 2024'
+      },
+      certification: {
+        name: 'Google UX Design Professional Certificate',
+        org: 'Coursera',
+        date: 'Issued Sep 2023'
       }
     },
     'Mechatronics & Automation': {
@@ -42,10 +48,16 @@ const About: React.FC = () => {
       techStack: ['C/C++ (Embedded)', 'SolidWorks', 'Altium Designer', 'ROS2'],
       focus: 'Distributed Robotics Fleet',
       highlight: 'Resolving traffic orchestration and deadlock issues in warehouse automation through decentralized logic.',
+      specialization: 'Embedded systems • IoT concepts • Automation logic • Signal handling',
       experience: {
         role: 'Intern - Autonomation',
         company: 'MAS Intimates',
         period: 'Jun 2025 - Dec 2025'
+      },
+      certification: {
+        name: 'Mechatronics-focused academic training',
+        org: 'Internal Engineering Audit',
+        date: 'Ongoing'
       }
     },
     'Software & Mobile Apps': {
@@ -59,10 +71,16 @@ const About: React.FC = () => {
       techStack: ['React / Next.js', 'TypeScript', 'Node.js (Bun)', 'PostgreSQL / Redis'],
       focus: 'High-Performance Systems',
       highlight: 'Developing secure, scalable foundations for hardware-integrated software and mobile platforms.',
+      specialization: 'Cloud Architecture • API Orchestration • Real-time Data • Mobile Native Performance',
       experience: {
         role: 'Associate Software Engineer',
         company: 'DiliMatrix',
         period: 'Aug 2024 - May 2025'
+      },
+      certification: {
+        name: 'Full-Stack Software Architecture',
+        org: 'Industry Continuous Learning',
+        date: 'Ongoing'
       }
     }
   };
@@ -283,10 +301,6 @@ const About: React.FC = () => {
                   <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-caribbeanGreen/5 via-transparent to-transparent opacity-60"></div>
 
                   <div className="relative z-10">
-                    <div className="inline-flex items-center space-x-3 mb-8 px-4 py-2 bg-white/5 border border-white/5 rounded-full">
-                      <div className="w-2 h-2 rounded-full bg-caribbeanGreen animate-pulse"></div>
-                      <span className="text-[10px] font-mono tracking-widest uppercase text-caribbeanGreen/80">Active Configuration: {activeTab}</span>
-                    </div>
 
                     <h3 className="text-3xl md:text-5xl font-extrabold text-antiFlashWhite mb-6 tracking-tight">
                       {activeTab}
@@ -339,33 +353,27 @@ const About: React.FC = () => {
                   <h4 className="text-[10px] font-mono uppercase tracking-[0.3em] text-stone/40 mb-6 flex items-center">
                     <span className="mr-3 text-caribbeanGreen">02</span> Focus Outcome
                   </h4>
-                  <p className="text-stone/80 leading-relaxed text-base md:text-lg italic font-light relative z-10 mb-8">
+                  <p className="text-stone/80 leading-relaxed text-base md:text-lg italic font-light relative z-10">
                     "{toolboxData[activeTab as keyof typeof toolboxData].highlight}"
                   </p>
-                  <div className="mt-auto pt-6 border-t border-white/5 flex justify-between items-end">
-                    <div>
-                      <span className="block text-[10px] font-mono text-stone/30 uppercase tracking-widest mb-1">Impact</span>
-                      <span className="text-caribbeanGreen font-bold text-lg">{toolboxData[activeTab as keyof typeof toolboxData].stats[0].value}</span>
-                    </div>
-                    <div className="text-right">
-                      <span className="block text-[10px] font-mono text-stone/30 uppercase tracking-widest mb-1">Domain</span>
-                      <span className="text-antiFlashWhite/60 font-medium text-xs">{toolboxData[activeTab as keyof typeof toolboxData].focus}</span>
-                    </div>
-                  </div>
                 </div>
 
-                {/* 5. System LOG Card */}
-                <div className="md:col-span-6 xl:col-span-4 bg-darkGreen/5 border border-darkGreen/10 rounded-[2.5rem] p-8 flex flex-col justify-center relative group">
+                {/* 5. Specialization Depth Card */}
+                <div className="md:col-span-6 xl:col-span-4 bg-darkGreen/5 border border-darkGreen/10 rounded-[2.5rem] p-8 flex flex-col relative group min-h-[250px]">
                   <div className="absolute top-6 right-8">
                     <div className="flex space-x-1">
                       {[1, 2, 3].map(i => <div key={i} className={`w-1 h-1 rounded-full ${i === 1 ? 'bg-caribbeanGreen animate-pulse' : 'bg-white/10'}`}></div>)}
                     </div>
                   </div>
-                  <span className="text-[10px] font-mono text-caribbeanGreen uppercase tracking-widest block mb-4">Diagnostic Log</span>
-                  <p className="text-[13px] text-stone/60 font-mono leading-relaxed">
-                    <span className="text-caribbeanGreen/40 mr-2">SYS_MSG:</span>
-                    Optimizing for high-performance distributed systems and industrial-grade reliability. All sectors nominal.
-                  </p>
+                  <span className="text-[10px] font-mono text-caribbeanGreen uppercase tracking-widest block mb-8">Specialization Depth</span>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    {toolboxData[activeTab as keyof typeof toolboxData].specialization.split(' • ').map((item, i) => (
+                      <div key={i} className="flex items-center p-3 bg-white/5 rounded-xl border border-transparent hover:border-caribbeanGreen/10 hover:bg-caribbeanGreen/5 transition-all group/spec">
+                        <span className="text-antiFlashWhite/75 text-[11px] font-mono leading-tight">{item}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
                 {/* Experience Card */}
@@ -396,25 +404,15 @@ const About: React.FC = () => {
                       </div>
                       <h3 className="text-lg font-bold text-antiFlashWhite uppercase tracking-wider">Certifications</h3>
                     </div>
-                    <p className="text-sm text-stone/70 leading-relaxed">
-                      Mechatronics-focused academic training.
-                    </p>
-                  </div>
-                </div>
-
-                {/* 6. Philosophy Card - Long Bottom */}
-                <div className="md:col-span-12 xl:col-span-12 bg-gradient-to-r from-caribbeanGreen/5 via-richBlack to-richBlack p-px rounded-[2.5rem]">
-                  <div className="bg-richBlack rounded-[calc(2.5rem-1px)] p-10 flex flex-col md:flex-row md:items-center justify-between gap-8">
-                    <div className="flex items-center space-x-4">
-                      <div className="w-1.5 h-1.5 rounded-full bg-caribbeanGreen animate-ping"></div>
-                      <span className="text-[10px] font-mono text-caribbeanGreen uppercase tracking-[0.3em]">Engineering Philosophy</span>
+                    <div className="space-y-1">
+                      <p className="text-antiFlashWhite font-bold text-base">{toolboxData[activeTab as keyof typeof toolboxData].certification.name}</p>
+                      <p className="text-caribbeanGreen/80 font-medium text-sm">{toolboxData[activeTab as keyof typeof toolboxData].certification.org}</p>
+                      <p className="text-stone/40 font-mono text-[10px] uppercase tracking-widest pt-2">
+                        {toolboxData[activeTab as keyof typeof toolboxData].certification.date}
+                      </p>
                     </div>
-                    <p className="text-antiFlashWhite/90 text-xl md:text-2xl leading-relaxed font-light italic text-right max-w-3xl">
-                      "I build for those who need to understand the system at a glance, not just those who built it."
-                    </p>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
