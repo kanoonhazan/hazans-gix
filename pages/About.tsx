@@ -66,6 +66,26 @@ const About: React.FC = () => {
         </div>
       </div>
 
+      {/* Principles Section */}
+      <div className="mb-32 opacity-0 animate-fade-in-up delay-300">
+        <h2 className="text-3xl font-bold text-antiFlashWhite mb-12 flex items-center justify-center">
+          <Hexagon className="w-6 h-6 mr-3 text-caribbeanGreen" /> Principles I Work By
+        </h2>
+        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          {principles.map((principle, idx) => (
+            <div key={idx} className="bg-gradient-to-br from-darkGreen/20 to-richBlack p-8 rounded-2xl border border-darkGreen/50 hover:border-caribbeanGreen/40 hover:translate-y-[-4px] transition-all duration-300 flex items-start group relative overflow-hidden shadow-lg">
+              <div className="absolute inset-0 bg-caribbeanGreen/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <span className="text-5xl font-bold text-darkGreen/30 absolute right-4 bottom-4 group-hover:text-caribbeanGreen/10 transition-colors">{idx + 1}</span>
+
+              <div className="relative z-10 flex items-start">
+                <CheckCircle className="w-6 h-6 text-mountainMeadow mr-4 shrink-0 mt-1 group-hover:text-caribbeanGreen transition-colors" />
+                <span className="text-xl text-stone font-medium group-hover:text-white transition-colors leading-relaxed">{principle}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* Technical Proficiency Grid */}
       <div className="mb-32 opacity-0 animate-fade-in-up delay-300">
         <div className="flex items-center justify-between mb-12 border-b border-darkGreen pb-6">
@@ -97,25 +117,6 @@ const About: React.FC = () => {
         </div>
       </div>
 
-      {/* Principles Section */}
-      <div className="mb-32 opacity-0 animate-fade-in-up delay-300">
-        <h2 className="text-3xl font-bold text-antiFlashWhite mb-12 flex items-center justify-center">
-          <Hexagon className="w-6 h-6 mr-3 text-caribbeanGreen" /> Principles I Work By
-        </h2>
-        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-          {principles.map((principle, idx) => (
-            <div key={idx} className="bg-gradient-to-br from-darkGreen/20 to-richBlack p-8 rounded-2xl border border-darkGreen/50 hover:border-caribbeanGreen/40 hover:translate-y-[-4px] transition-all duration-300 flex items-start group relative overflow-hidden shadow-lg">
-              <div className="absolute inset-0 bg-caribbeanGreen/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              <span className="text-5xl font-bold text-darkGreen/30 absolute right-4 bottom-4 group-hover:text-caribbeanGreen/10 transition-colors">{idx + 1}</span>
-
-              <div className="relative z-10 flex items-start">
-                <CheckCircle className="w-6 h-6 text-mountainMeadow mr-4 shrink-0 mt-1 group-hover:text-caribbeanGreen transition-colors" />
-                <span className="text-xl text-stone font-medium group-hover:text-white transition-colors leading-relaxed">{principle}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
 
       {/* CTA */}
       <div className="bg-gradient-to-br from-darkGreen to-richBlack border border-bangladeshGreen/30 rounded-3xl p-16 text-center opacity-0 animate-fade-in-up delay-500 shadow-2xl relative overflow-hidden group max-w-5xl mx-auto">
