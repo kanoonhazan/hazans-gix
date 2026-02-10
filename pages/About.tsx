@@ -183,15 +183,23 @@ const About: React.FC = () => {
         </div>
       </div>
 
-      {/* Technical Proficiency Playground */}
+      {/* THE PLAYGROUND - Technical Domains */}
       <div className="mb-20 md:mb-32 opacity-0 animate-fade-in-up delay-300 relative">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 border-b border-white/5 pb-10 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 border-b border-white/5 pb-8 gap-6">
           <div className="relative">
             <div className="absolute -left-4 top-0 w-1 h-12 bg-caribbeanGreen rounded-full hidden md:block"></div>
-            <h2 className="text-3xl md:text-4xl font-bold text-antiFlashWhite flex items-center mb-3">
-              Technical Toolbox
+            <h2 className="text-3xl md:text-5xl font-bold text-antiFlashWhite mb-4 tracking-tighter uppercase leading-none">
+              THE <span className="text-caribbeanGreen font-black">PLAYGROUND</span>
             </h2>
+            <div className="space-y-2">
+              <p className="text-stone/60 text-lg md:text-xl font-medium leading-relaxed">
+                This is where theory turns into shipped work.
+              </p>
+              <p className="text-caribbeanGreen/50 text-[10px] md:text-xs font-mono tracking-[0.3em] uppercase">
+                Three domains. One mindset.
+              </p>
+            </div>
           </div>
         </div>
 
