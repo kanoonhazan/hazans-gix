@@ -204,7 +204,7 @@ const Home: React.FC = () => {
         {filteredProjects.map((project, idx) => (
           <Link
             key={project.id}
-            to={`/work/${project.id}`}
+            to={`/work/project/${project.id}`}
             className={`group col-span-1 ${idx === 0 ? 'md:col-span-2' : ''} bg-darkGreen rounded-3xl p-8 border border-bangladeshGreen/30 hover:border-caribbeanGreen/50 transition-all duration-300 flex flex-col justify-between h-full opacity-0 animate-fade-in-up relative overflow-hidden shadow-lg`}
             style={{ animationDelay: `${500 + (idx * 100)}ms` }}
           >

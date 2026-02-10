@@ -1,15 +1,36 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 import { PROJECTS } from '../constants.ts';
 import { Project } from '../types';
 
-const Work: React.FC = () => {
-  const [selectedCategory, setSelectedCategory] = React.useState<string>('UI/UX Design');
+const CATEGORY_MAP: Record<string, string> = {
+  'ui-ux': 'UI/UX Design',
+  'mechatronics': 'Mechatronics',
+  'software': 'Software Solutions'
+};
 
-  const filteredProjects = PROJECTS.filter(p => p.category === selectedCategory);
+const REVERSE_MAP: Record<string, string> = {
+  'UI/UX Design': 'ui-ux',
+  'Mechatronics': 'mechatronics',
+  'Software Solutions': 'software'
+};
+
+const Work: React.FC = () => {
+  const { category } = useParams<{ category: string }>();
+  const navigate = useNavigate();
+
+  // Determine active category from URL or default to UI/UX
+  const activeCategoryName = CATEGORY_MAP[category || ''] || 'UI/UX Design';
+
+  const filteredProjects = PROJECTS.filter(p => p.category === activeCategoryName);
 
   const categories = ['UI/UX Design', 'Mechatronics', 'Software Solutions'];
+
+  const handleCategoryClick = (cat: string) => {
+    const slug = REVERSE_MAP[cat];
+    navigate(`/work/${slug}`);
+  };
 
   return (
     <div className="pt-24 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col min-h-[80vh]">
@@ -24,8 +45,8 @@ const Work: React.FC = () => {
           {categories.map((cat) => (
             <button
               key={cat}
-              onClick={() => setSelectedCategory(cat)}
-              className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 border ${selectedCategory === cat
+              onClick={() => handleCategoryClick(cat)}
+              className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 border ${activeCategoryName === cat
                 ? 'bg-caribbeanGreen text-richBlack border-caribbeanGreen shadow-lg shadow-caribbeanGreen/20 scale-105'
                 : 'bg-darkGreen/20 text-stone border-bangladeshGreen/30 hover:border-caribbeanGreen/50 hover:text-antiFlashWhite'
                 }`}
@@ -39,7 +60,7 @@ const Work: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
         {filteredProjects.map((project, idx) => (
           <Link
-            to={`/work/${project.id}`}
+            to={`/work/project/${project.id}`}
             key={project.id}
             className="group block opacity-0 animate-fade-in-up"
             style={{ animationDelay: `${idx * 150}ms` }}
