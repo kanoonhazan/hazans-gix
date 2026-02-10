@@ -24,8 +24,8 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className="fixed top-3 left-0 right-0 z-50 px-4 pointer-events-none">
-      <div className="max-w-6xl mx-auto pointer-events-auto">
-        <div className="bg-richBlack/50 backdrop-blur-2xl border border-white/10 rounded-full px-5 py-2.5 flex justify-between items-center shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5),0_0_20px_rgba(0,204,153,0.05)] ring-1 ring-white/5 relative overflow-hidden">
+      <div className="max-w-6xl mx-auto pointer-events-none">
+        <div className="bg-richBlack/50 backdrop-blur-2xl border border-white/10 rounded-full px-5 py-2.5 flex justify-between items-center shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5),0_0_20px_rgba(0,204,153,0.05)] ring-1 ring-white/5 relative overflow-hidden pointer-events-auto">
           {/* Top Edge Shine */}
           <div className="absolute top-0 left-10 right-10 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
 
@@ -65,7 +65,7 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Mobile Nav */}
-        <div className={`md:hidden mt-3 transition-all duration-500 ease-out ${isOpen ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 -translate-y-4 scale-95 pointer-events-none'}`}>
+        <div className={`md:hidden mt-3 transition-all duration-500 ease-out ${isOpen ? 'opacity-100 translate-y-0 scale-100 pointer-events-auto' : 'opacity-0 -translate-y-4 scale-95 pointer-events-none'}`}>
           <div className="bg-richBlack/95 backdrop-blur-3xl border border-white/10 rounded-[2rem] p-4 shadow-3xl space-y-2 ring-1 ring-white/5">
             {navItems.map((item) => (
               <NavLink

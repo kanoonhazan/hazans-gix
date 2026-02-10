@@ -140,36 +140,43 @@ const About: React.FC = () => {
         </div>
 
         {/* Console Switcher - Sticky */}
-        <div className="sticky top-24 z-30 mb-12 bg-richBlack/80 backdrop-blur-xl p-1.5 rounded-3xl border border-white/5 shadow-2xl">
-          <div className="grid grid-cols-3 gap-1.5">
-            {categories.map((cat, idx) => {
-              const Icon = toolboxData[cat].icon;
-              const isActive = activeTab === cat;
-              return (
-                <button
-                  key={cat}
-                  onClick={() => setActiveTab(cat)}
-                  className={`relative flex flex-col md:flex-row items-center justify-center md:justify-start gap-2 md:gap-4 p-3 md:p-4 rounded-2xl transition-all duration-500 group overflow-hidden ${isActive
-                      ? 'bg-caribbeanGreen text-richBlack'
-                      : 'hover:bg-white/5 text-stone active:scale-95'
-                    }`}
-                >
-                  <div className={`p-2 rounded-xl transition-colors shrink-0 ${isActive ? 'bg-richBlack/10' : 'bg-darkGreen/20 text-caribbeanGreen group-hover:bg-caribbeanGreen group-hover:text-richBlack'}`}>
-                    <Icon className="w-4 h-4 md:w-5 md:h-5" />
-                  </div>
-                  <div className="text-center md:text-left truncate">
-                    <span className="block text-[8px] md:text-[10px] font-mono opacity-50 leading-none mb-1 hidden sm:block">MODE_0{idx + 1}</span>
-                    <span className="text-[10px] md:text-[13px] font-bold uppercase tracking-tighter md:tracking-wider block truncate">
-                      {cat.split(' (')[0].replace('Mechatronics & ', '').replace('Software & ', '').replace('Product ', '')}
-                    </span>
-                  </div>
+        <div className="sticky top-[64px] z-40 mb-12 -mx-4 sm:-mx-6 lg:-mx-8 px-4 pointer-events-none">
+          <div className="max-w-6xl mx-auto pointer-events-auto">
+            <div className="bg-richBlack/50 backdrop-blur-2xl border border-white/10 rounded-full px-5 py-2.5 flex justify-between items-center shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5),0_0_20px_rgba(0,204,153,0.05)] ring-1 ring-white/5 relative overflow-hidden">
+              {/* Top Edge Shine */}
+              <div className="absolute top-0 left-10 right-10 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
 
-                  {isActive && (
-                    <div className="absolute bottom-0 left-0 h-0.5 bg-black/20 animate-progress-mini"></div>
-                  )}
-                </button>
-              );
-            })}
+              <div className="grid grid-cols-3 gap-1 md:gap-1.5 w-full relative z-10">
+                {categories.map((cat, idx) => {
+                  const Icon = toolboxData[cat].icon;
+                  const isActive = activeTab === cat;
+                  return (
+                    <button
+                      key={cat}
+                      onClick={() => setActiveTab(cat)}
+                      className={`relative flex flex-row items-center justify-center md:justify-start gap-1.5 md:gap-4 px-3 md:px-5 py-2 rounded-full transition-all duration-500 group/link overflow-hidden ${isActive
+                        ? 'text-caribbeanGreen'
+                        : 'text-stone hover:text-antiFlashWhite'
+                        }`}
+                    >
+                      <div className={`p-1.5 rounded-lg transition-colors shrink-0 relative z-10 ${isActive ? 'bg-caribbeanGreen/10' : 'bg-darkGreen/20 text-caribbeanGreen group-hover/link:bg-caribbeanGreen group-hover/link:text-richBlack'}`}>
+                        <Icon className="w-3.5 h-3.5 md:w-5 md:h-5" />
+                      </div>
+                      <div className="text-center md:text-left truncate relative z-10">
+                        <span className="block text-[8px] md:text-[10px] font-mono opacity-50 leading-none mb-0.5 hidden sm:block">MODE_0{idx + 1}</span>
+                        <span className="text-[11px] md:text-[13px] font-semibold uppercase tracking-[0.1em] block truncate">
+                          {cat.split(' (')[0].replace('Mechatronics & ', '').replace('Software & ', '').replace('Product ', '')}
+                        </span>
+                      </div>
+
+                      {isActive && (
+                        <div className="absolute inset-0 bg-caribbeanGreen/10 border border-caribbeanGreen/20 rounded-full animate-fade-in"></div>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </div>
 
