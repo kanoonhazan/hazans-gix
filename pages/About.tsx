@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../components/Button';
-import { CheckCircle, Hexagon, Code, Cpu, PenTool, Database } from 'lucide-react';
+import { CheckCircle, Hexagon, Code, Cpu, PenTool, Database, User, Flag, Calendar, MapPin, Phone, Mail, MessageSquare, BookOpen } from 'lucide-react';
 
 const About: React.FC = () => {
   const principles = [
@@ -63,24 +63,37 @@ const About: React.FC = () => {
         <div className="lg:col-span-7 opacity-0 animate-fade-in-up">
           <div className="relative mb-8">
             <div className="absolute -left-10 -top-10 w-40 h-40 bg-caribbeanGreen/5 rounded-full blur-3xl"></div>
-            <h1 className="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-caribbeanGreen via-mint to-mountainMeadow relative z-10 pb-4 leading-tight">
-              The Operator’s<br /> Mindset.
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-antiFlashWhite relative z-10 pb-2 md:pb-4 leading-tight tracking-tight">
+              hey, this is <span className="text-transparent bg-clip-text bg-gradient-to-r from-caribbeanGreen via-mint to-mountainMeadow">Hazan.</span>
             </h1>
           </div>
-          <div className="space-y-6 text-xl text-stone/90 leading-relaxed">
-            <p>
+
+          <div className="space-y-6 md:space-y-8 text-lg md:text-xl text-stone/90 leading-relaxed mt-6 md:mt-10">
+            <p className="border-l-2 border-caribbeanGreen/30 pl-4 md:pl-6 italic">
               My background spans <span className="text-antiFlashWhite font-medium">mechatronics</span>, <span className="text-antiFlashWhite font-medium">product design</span>, and <span className="text-antiFlashWhite font-medium">software development</span>. To some, this looks like a lack of focus. To me, it’s the only way to build things that actually work.
             </p>
-            <p>
-              I don't just hand off a design. I don't just push code. <span className="text-caribbeanGreen font-bold">I own the outcome.</span> Whether it's optimizing a robotics fleet or refining a mobile checkout flow, I care about the total system performance.
-            </p>
+
+            <div className="space-y-3 md:space-y-4 font-medium text-antiFlashWhite/90">
+              <div className="flex items-center space-x-3 group">
+                <div className="w-1.5 h-1.5 rounded-full bg-caribbeanGreen group-hover:scale-150 transition-transform"></div>
+                <p className="text-base md:text-xl">I don’t chase tools. <span className="text-caribbeanGreen">I chase problems.</span></p>
+              </div>
+              <div className="flex items-center space-x-3 group">
+                <div className="w-1.5 h-1.5 rounded-full bg-caribbeanGreen group-hover:scale-150 transition-transform"></div>
+                <p className="text-base md:text-xl">I don’t design for slides. <span className="text-caribbeanGreen">I design for reality.</span></p>
+              </div>
+              <div className="flex items-center space-x-3 group">
+                <div className="w-1.5 h-1.5 rounded-full bg-caribbeanGreen group-hover:scale-150 transition-transform"></div>
+                <p className="text-base md:text-xl">My work sits at the intersection of <span className="text-caribbeanGreen">engineering rigor</span>, product thinking, and user-centered design.</p>
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Right: Image */}
-        <div className="lg:col-span-5 opacity-0 animate-fade-in-up delay-150 relative group">
+        <div className="lg:col-span-5 opacity-0 animate-fade-in-up delay-150 relative group max-w-[280px] sm:max-w-md mx-auto lg:max-w-none w-full">
           <div className="absolute inset-0 bg-caribbeanGreen/20 rounded-3xl transform rotate-3 transition-transform group-hover:rotate-6"></div>
-          <div className="relative rounded-3xl overflow-hidden border border-darkGreen shadow-2xl shadow-caribbeanGreen/10 aspect-[4/5] bg-richBlack">
+          <div className="relative rounded-3xl overflow-hidden border border-darkGreen shadow-2xl shadow-caribbeanGreen/10 aspect-[4/5] lg:aspect-[4/5] bg-richBlack">
             <img
               src="/images/HeroImage.jpg"
               alt="Hazan working on code"
@@ -94,29 +107,138 @@ const About: React.FC = () => {
         </div>
       </div>
 
-      {/* Quote Break */}
-      <div className="max-w-4xl mx-auto mb-32 opacity-0 animate-fade-in-up delay-200">
-        <div className="bg-gradient-to-r from-darkGreen/20 to-transparent border-l-4 border-caribbeanGreen pl-8 py-8 rounded-r-2xl">
-          <p className="text-2xl md:text-3xl text-antiFlashWhite font-medium italic leading-relaxed">
-            "I operate at the intersection—where constraints are real, and every decision has a trade-off. Isolation is the enemy of reliability."
-          </p>
+      {/* Personal Details - Operator Identification */}
+      <div className="mb-20 md:mb-32 opacity-0 animate-fade-in-up delay-200">
+        <h2 className="text-2xl md:text-3xl font-bold text-antiFlashWhite mb-8 md:mb-12 flex items-center justify-center">
+          <User className="w-5 h-5 md:w-6 md:h-6 mr-3 text-caribbeanGreen" /> Personal Details
+        </h2>
+        <div className="bg-gradient-to-br from-darkGreen/10 to-richBlack border border-white/5 rounded-3xl md:rounded-[3rem] p-8 md:p-16 relative overflow-hidden group/card shadow-2xl">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-caribbeanGreen/5 rounded-full blur-[100px] -mr-48 -mt-48 transition-all duration-1000 group-hover/card:bg-caribbeanGreen/10"></div>
+
+          <div className="relative z-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+              <div className="group/item">
+                <div className="flex items-center space-x-4 mb-3">
+                  <div className="p-2.5 bg-white/5 rounded-xl text-caribbeanGreen group-hover/item:bg-caribbeanGreen group-hover/item:text-richBlack transition-all duration-500 ring-1 ring-white/10 group-hover/item:ring-caribbeanGreen/50">
+                    <User className="w-4 h-4" />
+                  </div>
+                  <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-stone/40 font-bold">Full Name</span>
+                </div>
+                <p className="text-xl font-bold text-antiFlashWhite/90 pl-1">Kanoon Hazan</p>
+              </div>
+
+              <div className="group/item">
+                <div className="flex items-center space-x-4 mb-3">
+                  <div className="p-2.5 bg-white/5 rounded-xl text-caribbeanGreen group-hover/item:bg-caribbeanGreen group-hover/item:text-richBlack transition-all duration-500 ring-1 ring-white/10 group-hover/item:ring-caribbeanGreen/50">
+                    <Flag className="w-4 h-4" />
+                  </div>
+                  <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-stone/40 font-bold">Nationality</span>
+                </div>
+                <p className="text-xl font-bold text-antiFlashWhite/90 pl-1">Sri Lankan</p>
+              </div>
+
+              <div className="group/item">
+                <div className="flex items-center space-x-4 mb-3">
+                  <div className="p-2.5 bg-white/5 rounded-xl text-caribbeanGreen group-hover/item:bg-caribbeanGreen group-hover/item:text-richBlack transition-all duration-500 ring-1 ring-white/10 group-hover/item:ring-caribbeanGreen/50">
+                    <Calendar className="w-4 h-4" />
+                  </div>
+                  <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-stone/40 font-bold">Date of Birth</span>
+                </div>
+                <p className="text-xl font-bold text-antiFlashWhite/90 pl-1">22 Dec 2000</p>
+              </div>
+
+              <div className="group/item">
+                <div className="flex items-center space-x-4 mb-3">
+                  <div className="p-2.5 bg-white/5 rounded-xl text-caribbeanGreen group-hover/item:bg-caribbeanGreen group-hover/item:text-richBlack transition-all duration-500 ring-1 ring-white/10 group-hover/item:ring-caribbeanGreen/50">
+                    <MapPin className="w-4 h-4" />
+                  </div>
+                  <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-stone/40 font-bold">Hometown</span>
+                </div>
+                <p className="text-xl font-bold text-antiFlashWhite/90 pl-1">Mannar, SL</p>
+              </div>
+
+              <div className="group/item">
+                <div className="flex items-center space-x-4 mb-3">
+                  <div className="p-2.5 bg-white/5 rounded-xl text-caribbeanGreen group-hover/item:bg-caribbeanGreen group-hover/item:text-richBlack transition-all duration-500 ring-1 ring-white/10 group-hover/item:ring-caribbeanGreen/50">
+                    <Phone className="w-4 h-4" />
+                  </div>
+                  <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-stone/40 font-bold">Phone</span>
+                </div>
+                <p className="text-xl font-bold text-antiFlashWhite/90 pl-1">+94 75 808 9209</p>
+              </div>
+
+              <div className="group/item">
+                <div className="flex items-center space-x-4 mb-3">
+                  <div className="p-2.5 bg-white/5 rounded-xl text-caribbeanGreen group-hover/item:bg-caribbeanGreen group-hover/item:text-richBlack transition-all duration-500 ring-1 ring-white/10 group-hover/item:ring-caribbeanGreen/50">
+                    <MessageSquare className="w-4 h-4" />
+                  </div>
+                  <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-stone/40 font-bold">WhatsApp</span>
+                </div>
+                <p className="text-xl font-bold text-antiFlashWhite/90 pl-1">+94 57 808 9209</p>
+              </div>
+
+              <div className="group/item lg:col-span-2">
+                <div className="flex items-center space-x-4 mb-3">
+                  <div className="p-2.5 bg-white/5 rounded-xl text-caribbeanGreen group-hover/item:bg-caribbeanGreen group-hover/item:text-richBlack transition-all duration-500 ring-1 ring-white/10 group-hover/item:ring-caribbeanGreen/50">
+                    <Mail className="w-4 h-4" />
+                  </div>
+                  <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-stone/40 font-bold">Email</span>
+                </div>
+                <p className="text-xl font-bold text-antiFlashWhite/90 pl-1">kanoonhazan@gmail.com</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Education Section */}
+      <div className="mb-20 md:mb-32 opacity-0 animate-fade-in-up delay-[250ms]">
+        <h2 className="text-2xl md:text-3xl font-bold text-antiFlashWhite mb-8 md:mb-12 flex items-center justify-center">
+          <BookOpen className="w-5 h-5 md:w-6 md:h-6 mr-3 text-caribbeanGreen" /> Education
+        </h2>
+        <div className="max-w-4xl mx-auto space-y-6">
+          <div className="bg-gradient-to-br from-darkGreen/10 to-richBlack border border-white/5 rounded-3xl p-8 md:p-10 relative overflow-hidden group shadow-xl">
+            <div className="absolute top-0 right-0 p-6 opacity-10">
+              <Cpu className="w-20 h-20 text-caribbeanGreen" />
+            </div>
+            <div className="relative z-10 text-left">
+              <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-caribbeanGreen/10 border border-caribbeanGreen/20 mb-6 font-mono text-[10px] text-caribbeanGreen uppercase tracking-widest">
+                Degree Program
+              </div>
+              <h3 className="text-2xl md:text-3xl font-bold text-antiFlashWhite mb-1">B.Sc. in Science & Technology</h3>
+              <p className="text-caribbeanGreen font-bold text-lg mb-6">Specialization: Mechatronics</p>
+              <p className="text-stone/50 font-medium mb-3">Uva Wellassa University of Sri Lanka</p>
+              <div className="space-y-4 text-stone/80 text-base md:text-lg leading-relaxed border-l-2 border-caribbeanGreen/20 pl-6">
+                <p>Focused on embedded systems, automation, control, and applied engineering.</p>
+                <div className="flex items-center space-x-2 text-sm font-mono text-stone/40">
+                  <Calendar className="w-4 h-4" />
+                  <span>Graduating 2025</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-richBlack/50 backdrop-blur-sm border border-white/5 rounded-2xl p-6 md:p-8 italic text-stone/70 text-sm md:text-base leading-relaxed relative overflow-hidden group text-center">
+            <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-caribbeanGreen/50 to-transparent"></div>
+            "Along the way, I deliberately stacked product design, UI/UX, and software skills to avoid becoming a one-dimensional engineer."
+          </div>
         </div>
       </div>
 
       {/* Principles Section */}
-      <div className="mb-32 opacity-0 animate-fade-in-up delay-300">
-        <h2 className="text-3xl font-bold text-antiFlashWhite mb-12 flex items-center justify-center">
-          <Hexagon className="w-6 h-6 mr-3 text-caribbeanGreen" /> Principles I Work By
+      <div className="mb-20 md:mb-32 opacity-0 animate-fade-in-up delay-300">
+        <h2 className="text-2xl md:text-3xl font-bold text-antiFlashWhite mb-8 md:mb-12 flex items-center justify-center">
+          <Hexagon className="w-5 h-5 md:w-6 md:h-6 mr-3 text-caribbeanGreen" /> Principles I Work By
         </h2>
-        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-4 md:gap-6 max-w-5xl mx-auto">
           {principles.map((principle, idx) => (
-            <div key={idx} className="bg-gradient-to-br from-darkGreen/20 to-richBlack p-8 rounded-2xl border border-darkGreen/50 hover:border-caribbeanGreen/40 hover:translate-y-[-4px] transition-all duration-300 flex items-start group relative overflow-hidden shadow-lg">
+            <div key={idx} className="bg-gradient-to-br from-darkGreen/20 to-richBlack p-6 md:p-8 rounded-2xl border border-darkGreen/50 hover:border-caribbeanGreen/40 hover:translate-y-[-4px] transition-all duration-300 flex items-start group relative overflow-hidden shadow-lg">
               <div className="absolute inset-0 bg-caribbeanGreen/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              <span className="text-5xl font-bold text-darkGreen/30 absolute right-4 bottom-4 group-hover:text-caribbeanGreen/10 transition-colors">{idx + 1}</span>
+              <span className="text-4xl md:text-5xl font-bold text-darkGreen/30 absolute right-4 bottom-4 group-hover:text-caribbeanGreen/10 transition-colors">{idx + 1}</span>
 
               <div className="relative z-10 flex items-start">
-                <CheckCircle className="w-6 h-6 text-mountainMeadow mr-4 shrink-0 mt-1 group-hover:text-caribbeanGreen transition-colors" />
-                <span className="text-xl text-stone font-medium group-hover:text-white transition-colors leading-relaxed">{principle}</span>
+                <CheckCircle className="w-5 h-5 md:w-6 md:h-6 text-mountainMeadow mr-3 md:mr-4 shrink-0 mt-1 group-hover:text-caribbeanGreen transition-colors" />
+                <span className="text-lg md:text-xl text-stone font-medium group-hover:text-white transition-colors leading-relaxed">{principle}</span>
               </div>
             </div>
           ))}
