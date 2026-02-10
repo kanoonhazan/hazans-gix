@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, Layers, LayoutGrid } from 'lucide-react';
+import { ArrowLeft, Layers, LayoutGrid, ArrowUpRight } from 'lucide-react';
 import { CASE_STUDIES } from '../constants';
 import Button from '../components/Button';
 
@@ -226,9 +226,33 @@ const CaseStudy: React.FC = () => {
       </section>
 
       {/* Bottom Nav */}
-      <div className="flex justify-between items-center border-t border-darkGreen pt-12 opacity-0 animate-fade-in-up delay-500">
-        <Link to="/work"><Button variant="outline">Back to Projects</Button></Link>
-        <Link to="/contact"><Button variant="primary" icon>Start a Conversation</Button></Link>
+      <div className="border-t border-darkGreen pt-12 opacity-0 animate-fade-in-up delay-500">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+          <Link to="/work"><Button variant="outline">Back to Projects</Button></Link>
+
+          {(() => {
+            const projectIds = Object.keys(CASE_STUDIES);
+            const currentIndex = projectIds.indexOf(id || '');
+            const nextId = projectIds[(currentIndex + 1) % projectIds.length];
+            const nextProject = CASE_STUDIES[nextId];
+
+            return (
+              <Link to={`/work/project/${nextId}`} className="group flex flex-col items-end text-right">
+                <span className="text-stone/50 font-mono text-[10px] uppercase tracking-widest mb-2">Next Project</span>
+                <div className="flex items-center space-x-4">
+                  <span className="text-xl font-bold text-antiFlashWhite group-hover:text-caribbeanGreen transition-colors">{nextProject.title}</span>
+                  <div className="w-10 h-10 rounded-full bg-darkGreen flex items-center justify-center group-hover:bg-caribbeanGreen group-hover:text-richBlack transition-all">
+                    <ArrowUpRight className="w-5 h-5" />
+                  </div>
+                </div>
+              </Link>
+            );
+          })()}
+        </div>
+
+        <div className="mt-16 text-center">
+          <Link to="/contact"><Button variant="primary" icon className="px-12 py-4">Start a Conversation</Button></Link>
+        </div>
       </div>
 
     </article>

@@ -96,8 +96,8 @@ const About: React.FC = () => {
         <div className="lg:col-span-7 opacity-0 animate-fade-in-up">
           <div className="relative mb-8">
             <div className="absolute -left-10 -top-10 w-40 h-40 bg-caribbeanGreen/5 rounded-full blur-3xl"></div>
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-antiFlashWhite relative z-10 pb-2 md:pb-4 leading-tight tracking-tight">
-              hey, this is <span className="text-transparent bg-clip-text bg-gradient-to-r from-caribbeanGreen via-mint to-mountainMeadow">Hazan.</span>
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-antiFlashWhite relative z-10 pb-2 md:pb-4 leading-tight tracking-tight uppercase">
+              I'M <span className="text-transparent bg-clip-text bg-gradient-to-r from-caribbeanGreen via-mint to-mountainMeadow font-black">HAZAN.</span>
             </h1>
           </div>
 

@@ -4,13 +4,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hazan's Gix</title>
+  <meta name="description"
+    content="Kanoon Hazan - Systems Engineer specializing in Mechatronics, Software, and Product Design. Building intelligent systems that connect hardware, code, and people." />
+  <title>Kanoon Hazan | Systems Engineer & Product Designer</title>
   <link rel="icon" type="image/png" href="/images/favicon.png" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
     rel="stylesheet">
   <script>
     tailwind.config = {
@@ -60,25 +62,27 @@
               '100%': { width: '0%', left: '100%' }
             }
           },
-          spacing: {
-            '128': '32rem',
-          }
         },
       },
     }
   </script>
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       background-color: #020406;
       background-image: radial-gradient(circle at 50% 0%, #011F14 0%, #020406 70%);
       background-attachment: fixed;
       color: #F0F2F5;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
     /* Custom Scrollbar */
     ::-webkit-scrollbar {
-      width: 8px;
+      width: 10px;
     }
 
     ::-webkit-scrollbar-track {
@@ -87,11 +91,12 @@
 
     ::-webkit-scrollbar-thumb {
       background: #011F14;
-      border-radius: 4px;
+      border: 3px solid #020406;
+      border-radius: 10px;
     }
 
     ::-webkit-scrollbar-thumb:hover {
-      background: #005C42;
+      background: #00CC99;
     }
 
     /* Stagger delays */
@@ -121,6 +126,7 @@
     "react/": "https://esm.sh/react@^19.2.3/",
     "react": "https://esm.sh/react@^19.2.3",
     "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react-dom": "https://esm.sh/react-dom@^19.2.3",
     "react-router-dom": "https://esm.sh/react-router-dom@^7.10.1",
     "lucide-react": "https://esm.sh/lucide-react@^0.561.0"
   }

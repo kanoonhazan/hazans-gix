@@ -34,8 +34,9 @@ const Work: React.FC = () => {
 
   return (
     <div className="pt-24 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col min-h-[80vh]">
-      <div className="mb-16 opacity-0 animate-fade-in-up">
-        <h1 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-caribbeanGreen via-mint to-mountainMeadow mb-6 pb-2">Projects</h1>
+      <div className="mb-16 opacity-0 animate-fade-in-up relative">
+        <div className="absolute -left-10 -top-10 w-40 h-40 bg-caribbeanGreen/5 rounded-full blur-3xl"></div>
+        <h1 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-caribbeanGreen via-mint to-mountainMeadow mb-6 pb-2 relative z-10">Projects</h1>
         <p className="text-xl text-stone max-w-3xl leading-relaxed mb-10">
           Each project below was selected intentionally—not to show volume, but to show decision-making, trade-offs, and outcomes.
         </p>
