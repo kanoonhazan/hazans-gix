@@ -73,18 +73,38 @@ const About: React.FC = () => {
               My background spans <span className="text-antiFlashWhite font-medium">mechatronics</span>, <span className="text-antiFlashWhite font-medium">product design</span>, and <span className="text-antiFlashWhite font-medium">software development</span>. To some, this looks like a lack of focus. To me, it’s the only way to build things that actually work.
             </p>
 
-            <div className="space-y-3 md:space-y-4 font-medium text-antiFlashWhite/90">
-              <div className="flex items-center space-x-3 group">
-                <div className="w-1.5 h-1.5 rounded-full bg-caribbeanGreen group-hover:scale-150 transition-transform"></div>
-                <p className="text-base md:text-xl">I don’t chase tools. <span className="text-caribbeanGreen">I chase problems.</span></p>
+            <div className="grid grid-cols-2 gap-x-6 gap-y-4 pt-4 border-t border-white/5">
+              <div className="space-y-1">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-stone/40 block">Location</span>
+                <p className="text-sm md:text-base font-bold text-antiFlashWhite">Mannar, Sri Lanka</p>
               </div>
-              <div className="flex items-center space-x-3 group">
-                <div className="w-1.5 h-1.5 rounded-full bg-caribbeanGreen group-hover:scale-150 transition-transform"></div>
-                <p className="text-base md:text-xl">I don’t design for slides. <span className="text-caribbeanGreen">I design for reality.</span></p>
+              <div className="space-y-1 text-right">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-stone/40 block">Nationality</span>
+                <p className="text-sm md:text-base font-bold text-antiFlashWhite">Sri Lankan</p>
               </div>
-              <div className="flex items-center space-x-3 group">
-                <div className="w-1.5 h-1.5 rounded-full bg-caribbeanGreen group-hover:scale-150 transition-transform"></div>
-                <p className="text-base md:text-xl">My work sits at the intersection of <span className="text-caribbeanGreen">engineering rigor</span>, product thinking, and user-centered design.</p>
+              <div className="space-y-1">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-stone/40 block">Born</span>
+                <p className="text-sm md:text-base font-bold text-antiFlashWhite">22 Dec 2000</p>
+              </div>
+              <div className="space-y-1 text-right">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-stone/40 block">Email</span>
+                <p className="text-sm md:text-base font-bold text-antiFlashWhite truncate">kanoonhazan@gmail.com</p>
+              </div>
+              <div className="space-y-1 pt-2 col-span-2 border-t border-white/5 flex justify-between items-center">
+                <div className="flex items-center space-x-4">
+                  <div className="flex flex-col">
+                    <span className="text-[10px] font-mono uppercase tracking-widest text-stone/40">Phone / WhatsApp</span>
+                    <p className="text-sm md:text-base font-bold text-caribbeanGreen">+94 75 808 9209</p>
+                  </div>
+                </div>
+                <div className="flex space-x-3">
+                  <a href="mailto:kanoonhazan@gmail.com" className="p-2 bg-white/5 rounded-lg text-caribbeanGreen hover:bg-caribbeanGreen hover:text-richBlack transition-all">
+                    <Mail className="w-4 h-4" />
+                  </a>
+                  <a href="https://wa.me/94758089209" className="p-2 bg-white/5 rounded-lg text-caribbeanGreen hover:bg-caribbeanGreen hover:text-richBlack transition-all">
+                    <MessageSquare className="w-4 h-4" />
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -107,89 +127,7 @@ const About: React.FC = () => {
         </div>
       </div>
 
-      {/* Personal Details - Operator Identification */}
-      <div className="mb-20 md:mb-32 opacity-0 animate-fade-in-up delay-200">
-        <h2 className="text-2xl md:text-3xl font-bold text-antiFlashWhite mb-8 md:mb-12 flex items-center justify-center">
-          <User className="w-5 h-5 md:w-6 md:h-6 mr-3 text-caribbeanGreen" /> Personal Details
-        </h2>
-        <div className="bg-gradient-to-br from-darkGreen/10 to-richBlack border border-white/5 rounded-3xl md:rounded-[3rem] p-8 md:p-16 relative overflow-hidden group/card shadow-2xl">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-caribbeanGreen/5 rounded-full blur-[100px] -mr-48 -mt-48 transition-all duration-1000 group-hover/card:bg-caribbeanGreen/10"></div>
 
-          <div className="relative z-10">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
-              <div className="group/item">
-                <div className="flex items-center space-x-4 mb-3">
-                  <div className="p-2.5 bg-white/5 rounded-xl text-caribbeanGreen group-hover/item:bg-caribbeanGreen group-hover/item:text-richBlack transition-all duration-500 ring-1 ring-white/10 group-hover/item:ring-caribbeanGreen/50">
-                    <User className="w-4 h-4" />
-                  </div>
-                  <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-stone/40 font-bold">Full Name</span>
-                </div>
-                <p className="text-xl font-bold text-antiFlashWhite/90 pl-1">Kanoon Hazan</p>
-              </div>
-
-              <div className="group/item">
-                <div className="flex items-center space-x-4 mb-3">
-                  <div className="p-2.5 bg-white/5 rounded-xl text-caribbeanGreen group-hover/item:bg-caribbeanGreen group-hover/item:text-richBlack transition-all duration-500 ring-1 ring-white/10 group-hover/item:ring-caribbeanGreen/50">
-                    <Flag className="w-4 h-4" />
-                  </div>
-                  <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-stone/40 font-bold">Nationality</span>
-                </div>
-                <p className="text-xl font-bold text-antiFlashWhite/90 pl-1">Sri Lankan</p>
-              </div>
-
-              <div className="group/item">
-                <div className="flex items-center space-x-4 mb-3">
-                  <div className="p-2.5 bg-white/5 rounded-xl text-caribbeanGreen group-hover/item:bg-caribbeanGreen group-hover/item:text-richBlack transition-all duration-500 ring-1 ring-white/10 group-hover/item:ring-caribbeanGreen/50">
-                    <Calendar className="w-4 h-4" />
-                  </div>
-                  <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-stone/40 font-bold">Date of Birth</span>
-                </div>
-                <p className="text-xl font-bold text-antiFlashWhite/90 pl-1">22 Dec 2000</p>
-              </div>
-
-              <div className="group/item">
-                <div className="flex items-center space-x-4 mb-3">
-                  <div className="p-2.5 bg-white/5 rounded-xl text-caribbeanGreen group-hover/item:bg-caribbeanGreen group-hover/item:text-richBlack transition-all duration-500 ring-1 ring-white/10 group-hover/item:ring-caribbeanGreen/50">
-                    <MapPin className="w-4 h-4" />
-                  </div>
-                  <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-stone/40 font-bold">Hometown</span>
-                </div>
-                <p className="text-xl font-bold text-antiFlashWhite/90 pl-1">Mannar, SL</p>
-              </div>
-
-              <div className="group/item">
-                <div className="flex items-center space-x-4 mb-3">
-                  <div className="p-2.5 bg-white/5 rounded-xl text-caribbeanGreen group-hover/item:bg-caribbeanGreen group-hover/item:text-richBlack transition-all duration-500 ring-1 ring-white/10 group-hover/item:ring-caribbeanGreen/50">
-                    <Phone className="w-4 h-4" />
-                  </div>
-                  <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-stone/40 font-bold">Phone</span>
-                </div>
-                <p className="text-xl font-bold text-antiFlashWhite/90 pl-1">+94 75 808 9209</p>
-              </div>
-
-              <div className="group/item">
-                <div className="flex items-center space-x-4 mb-3">
-                  <div className="p-2.5 bg-white/5 rounded-xl text-caribbeanGreen group-hover/item:bg-caribbeanGreen group-hover/item:text-richBlack transition-all duration-500 ring-1 ring-white/10 group-hover/item:ring-caribbeanGreen/50">
-                    <MessageSquare className="w-4 h-4" />
-                  </div>
-                  <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-stone/40 font-bold">WhatsApp</span>
-                </div>
-                <p className="text-xl font-bold text-antiFlashWhite/90 pl-1">+94 57 808 9209</p>
-              </div>
-
-              <div className="group/item lg:col-span-2">
-                <div className="flex items-center space-x-4 mb-3">
-                  <div className="p-2.5 bg-white/5 rounded-xl text-caribbeanGreen group-hover/item:bg-caribbeanGreen group-hover/item:text-richBlack transition-all duration-500 ring-1 ring-white/10 group-hover/item:ring-caribbeanGreen/50">
-                    <Mail className="w-4 h-4" />
-                  </div>
-                  <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-stone/40 font-bold">Email</span>
-                </div>
-                <p className="text-xl font-bold text-antiFlashWhite/90 pl-1">kanoonhazan@gmail.com</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* Education Section */}
       <div className="mb-20 md:mb-32 opacity-0 animate-fade-in-up delay-[250ms]">
