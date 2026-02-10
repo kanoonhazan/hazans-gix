@@ -194,14 +194,6 @@ const About: React.FC = () => {
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_2px_2px,rgba(255,255,255,0.03)_1px,transparent_0)] bg-[length:24px_24px] pointer-events-none"></div>
                   <div className="absolute top-0 right-0 w-full h-1/2 bg-gradient-to-b from-caribbeanGreen/5 to-transparent blur-3xl opacity-50"></div>
 
-                  {/* Corner Labels */}
-                  <div className="absolute top-6 right-8 text-[8px] font-mono text-caribbeanGreen/20 uppercase tracking-[0.3em] pointer-events-none hidden md:block">
-                    System.Config // Node_{activeTab ? activeTab.slice(0, 3).toUpperCase() : 'NULL'}
-                  </div>
-                  <div className="absolute bottom-6 right-8 text-[8px] font-mono text-white/5 uppercase tracking-[0.3em] pointer-events-none hidden md:block">
-                    Auth.Level_4 // Secure_Access
-                  </div>
-
                   <div className="relative z-10">
                     <div className="inline-flex items-center space-x-3 mb-10 px-4 py-2 bg-white/5 border border-white/5 rounded-full">
                       <div className="w-2 h-2 rounded-full bg-caribbeanGreen animate-pulse"></div>
@@ -272,11 +264,10 @@ const About: React.FC = () => {
                       <Code className="w-5 h-5 text-caribbeanGreen/40" />
                     </div>
 
-                    <div className="space-y-2 mb-8">
+                    <div className="grid grid-cols-2 gap-3 mb-8">
                       {toolboxData[activeTab as keyof typeof toolboxData].techStack.map(tech => (
-                        <div key={tech} className="flex items-center justify-between p-3.5 bg-white/5 rounded-xl border border-transparent hover:border-caribbeanGreen/10 hover:bg-caribbeanGreen/5 transition-all group/tech">
-                          <span className="text-antiFlashWhite/75 text-sm font-medium">{tech}</span>
-                          <div className="w-4 h-px bg-white/10 group-hover/tech:w-8 transition-all"></div>
+                        <div key={tech} className="flex items-center p-3 bg-white/5 rounded-xl border border-transparent hover:border-caribbeanGreen/10 hover:bg-caribbeanGreen/5 transition-all group/tech">
+                          <span className="text-antiFlashWhite/75 text-[13px] font-medium truncate">{tech}</span>
                         </div>
                       ))}
                     </div>
