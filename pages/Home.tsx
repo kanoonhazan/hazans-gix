@@ -1,24 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import { supabase } from '../lib/supabase';
+import React from 'react';
+import { PROJECTS } from '../constants';
 import { Project } from '../types';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight, Zap, Layers, Cpu, Activity, Code, GitMerge, Globe, Linkedin, Instagram, Facebook, MessageCircle } from 'lucide-react';
 import Button from '../components/Button';
 
 const Home: React.FC = () => {
-  const [featuredProjects, setFeaturedProjects] = useState<Project[]>([]);
+  const [selectedCategory, setSelectedCategory] = React.useState<string>('UI/UX Design');
 
-  useEffect(() => {
-    const fetchFeatured = async () => {
-      const { data } = await supabase
-        .from('projects')
-        .select('*')
-        .order('created_at', { ascending: false })
-        .limit(3);
-      if (data) setFeaturedProjects(data);
-    }
-    fetchFeatured();
-  }, []);
+  const filteredProjects = PROJECTS.filter(p => p.category === selectedCategory);
+
+  const categories = ['UI/UX Design', 'Mechatronics', 'Software Solutions'];
 
   return (
     <div className="relative pt-24 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-hidden">
@@ -179,19 +171,37 @@ const Home: React.FC = () => {
 
         {/* Featured Projects Header */}
         <div className="col-span-1 md:col-span-2 lg:col-span-4 mt-12 mb-6 opacity-0 animate-fade-in-up delay-500">
-          <div className="flex flex-col md:flex-row justify-between items-end gap-4 border-b border-darkGreen/50 pb-6">
-            <div>
-              <h2 className="text-3xl font-bold text-antiFlashWhite mb-2">Selected Work</h2>
-              <p className="text-stone max-w-xl">A small set of projects chosen to demonstrate how I think, decide, and build across disciplines.</p>
+          <div className="flex flex-col space-y-8 border-b border-darkGreen/50 pb-8">
+            <div className="flex flex-col md:flex-row justify-between items-end gap-4">
+              <div>
+                <h2 className="text-3xl font-bold text-antiFlashWhite mb-2">Selected Work</h2>
+                <p className="text-stone max-w-xl">A small set of projects chosen to demonstrate how I think, decide, and build across disciplines.</p>
+              </div>
+              <Link to="/work" className="text-mountainMeadow hover:text-caribbeanGreen flex items-center font-medium transition-colors shrink-0 group">
+                View All <ArrowUpRight className="ml-1 w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              </Link>
             </div>
-            <Link to="/work" className="text-mountainMeadow hover:text-caribbeanGreen flex items-center font-medium transition-colors shrink-0 group">
-              View All <ArrowUpRight className="ml-1 w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-            </Link>
+
+            {/* Category Filter Buttons */}
+            <div className="flex flex-wrap gap-3">
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setSelectedCategory(cat)}
+                  className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 border ${selectedCategory === cat
+                    ? 'bg-caribbeanGreen text-richBlack border-caribbeanGreen shadow-lg shadow-caribbeanGreen/20 scale-105'
+                    : 'bg-darkGreen/20 text-stone border-bangladeshGreen/30 hover:border-caribbeanGreen/50 hover:text-antiFlashWhite'
+                    }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 
         {/* Featured Projects Cards */}
-        {featuredProjects.map((project, idx) => (
+        {filteredProjects.map((project, idx) => (
           <Link
             key={project.id}
             to={`/work/${project.id}`}

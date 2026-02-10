@@ -4,6 +4,7 @@ export interface Project {
   summary: string;
   tags: string[];
   thumbnail?: string; // URL placeholder
+  category: 'UI/UX Design' | 'Mechatronics' | 'Software Solutions';
 }
 
 export interface CaseStudySection {

@@ -1,50 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, Layers, LayoutGrid, Loader } from 'lucide-react';
-import { supabase } from '../lib/supabase';
+import { ArrowLeft, Layers, LayoutGrid } from 'lucide-react';
+import { CASE_STUDIES } from '../constants';
 import Button from '../components/Button';
-import { CaseStudyDetail } from '../types';
 
 const CaseStudy: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const [project, setProject] = useState<CaseStudyDetail | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<any>(null);
-
-  useEffect(() => {
-    const fetchProject = async () => {
-      if (!id) return;
-
-      // Fetch from case_studies table which holds the JSONB content
-      const { data, error: fetchError } = await supabase
-        .from('case_studies')
-        .select('content')
-        .eq('id', id)
-        .single();
-
-      if (data && data.content) {
-        setProject(data.content as CaseStudyDetail);
-      } else {
-        console.error('Project not found', fetchError);
-        setError(fetchError || { message: 'Row not found in case_studies table' });
-      }
-      setLoading(false);
-    };
-    fetchProject();
-  }, [id]);
-
-  if (loading) return <div className="min-h-screen flex items-center justify-center text-caribbeanGreen"><Loader className="w-8 h-8 animate-spin" /></div>;
+  const project = id ? CASE_STUDIES[id] : null;
 
   if (!project) {
     return (
       <div className="min-h-screen pt-32 px-4 text-center">
         <h1 className="text-3xl text-antiFlashWhite mb-4">Project not found.</h1>
-        {error && (
-          <div className="max-w-md mx-auto bg-red-500/10 border border-red-500/50 p-4 rounded-xl mb-6 text-left">
-            <p className="text-red-400 font-mono text-xs">Debug Error: {JSON.stringify(error, null, 2)}</p>
-            <p className="text-stone text-xs mt-2">ID Requested: {id}</p>
-          </div>
-        )}
         <Link to="/work"><Button variant="secondary">Back to Work</Button></Link>
       </div>
     )

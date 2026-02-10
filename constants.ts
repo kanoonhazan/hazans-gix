@@ -6,28 +6,32 @@ export const PROJECTS: Project[] = [
     title: 'Autonomous Logistics Fleet',
     summary: 'Orchestrating 50+ AMR robots with sub-10ms latency for high-density warehouses.',
     tags: ['Mechatronics', 'System Architecture', 'Real-time'],
-    thumbnail: 'https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&q=80&w=1000' // Industrial/Robotics
+    thumbnail: 'https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&q=80&w=1000', // Industrial/Robotics
+    category: 'Mechatronics'
   },
   {
     id: 'medical-iot',
     title: 'Connected Infusion Pump',
     summary: 'Redesigning the human-machine interface for critical care medical devices.',
     tags: ['UX/UI', 'Embedded', 'Safety Critical'],
-    thumbnail: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=1000' // Medical/Clean
+    thumbnail: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=1000', // Medical/Clean
+    category: 'UI/UX Design'
   },
   {
     id: 'smart-grid',
     title: 'Decentralized Energy Grid',
     summary: 'Peer-to-peer energy trading platform integrating solar hardware with blockchain ledger.',
     tags: ['Software', 'IoT', 'Blockchain'],
-    thumbnail: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80&w=1000' // City/Grid/Night
+    thumbnail: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80&w=1000', // City/Grid/Night
+    category: 'Software Solutions'
   },
   {
     id: 'haptic-feedback',
     title: 'Tactile VR Controller',
     summary: 'Developing novel actuator drivers for realistic texture simulation in virtual environments.',
     tags: ['R&D', 'Hardware', 'Prototyping'],
-    thumbnail: 'https://images.unsplash.com/photo-1622979135225-d2ba269fb1bd?auto=format&fit=crop&q=80&w=1000' // VR/Abstract
+    thumbnail: 'https://images.unsplash.com/photo-1622979135225-d2ba269fb1bd?auto=format&fit=crop&q=80&w=1000', // VR/Abstract
+    category: 'Mechatronics'
   }
 ];
 
@@ -38,6 +42,7 @@ export const CASE_STUDIES: Record<string, CaseStudyDetail> = {
     summary: 'Orchestrating 50+ AMR robots with sub-10ms latency.',
     tags: ['Mechatronics', 'System Architecture', 'Real-time'],
     thumbnail: 'https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&q=80&w=1000',
+    category: 'Mechatronics',
     snapshot: {
       summary: 'Designing a decentralized control system to eliminate deadlocks and reduce latency in high-density fulfillment centers.',
       context: 'This project focused on solving traffic orchestration issues for logistics operators within electrically noisy, high-density warehouse environments.',
@@ -88,6 +93,7 @@ export const CASE_STUDIES: Record<string, CaseStudyDetail> = {
     summary: 'Redesigning the human-machine interface for critical care.',
     tags: ['UX/UI', 'Embedded', 'Safety Critical'],
     thumbnail: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=1000',
+    category: 'UI/UX Design',
     snapshot: {
       summary: 'Designing a context-aware interface to reduce dosing errors and improve nurse confidence in ICU settings.',
       context: 'This project focused on solving usability friction for ICU nurses and patients within strict IEC 62366 usability standards.',
@@ -125,6 +131,94 @@ export const CASE_STUDIES: Record<string, CaseStudyDetail> = {
     ],
     reflection: {
       content: 'Designing for resistive screens was a constraint that shaped the entire aesthetic. I learned that visual affordances (clear borders, distinct active states) are non-negotiable when tactile feedback is limited. It reinforced that clarity often trumps minimalism in safety-critical systems.'
+    }
+  },
+  'smart-grid': {
+    id: 'smart-grid',
+    title: 'Decentralized Energy Grid',
+    summary: 'Integrating solar hardware with blockchain ledger.',
+    tags: ['Software', 'IoT', 'Blockchain'],
+    thumbnail: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80&w=1000',
+    category: 'Software Solutions',
+    snapshot: {
+      summary: 'Building a peer-to-peer energy trading platform using distributed ledger technology.',
+      context: 'Local energy communities looking to trade surplus solar power directly.',
+      role: 'Full Stack Developer & IoT Architect',
+    },
+    problem: {
+      content: 'Traditional energy grids are centralized and inefficient for small-scale local solar producers. There was no secure way to track and trade energy peer-to-peer without a central utility provider.'
+    },
+    constraints: {
+      content: 'Real-time synchronization was critical to avoid grid instability.',
+      bulletPoints: [
+        'Must handle thousands of micro-transactions per second.',
+        'Hardware sensors must be low-power and long-range.',
+        'Immutable data requirement for billing integrity.'
+      ]
+    },
+    decisions: {
+      content: 'We chose a private Ethereum-based sidechain for transparency and speed. IoT gateways were used to bridge hardware sensors to the blockchain.',
+    },
+    solution: {
+      content: 'The platform allows users to set automated bidding rules for buying and selling energy. Smart contracts handle the settlement automatically.',
+    },
+    impact: {
+      content: 'Led to a 15% reduction in energy costs for the pilot community.',
+      bulletPoints: [
+        'Scalable to 1,000+ nodes.',
+        'High user retention in the pilot phase.',
+        'Zero downtime during the 3-month trial.'
+      ]
+    },
+    gallery: [
+      'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80&w=1000'
+    ],
+    reflection: {
+      content: 'Blockchain is often overkill, but for P2P energy where trust is decentralized, it was the right fit. The biggest lesson was hardware-software sync.'
+    }
+  },
+  'haptic-feedback': {
+    id: 'haptic-feedback',
+    title: 'Tactile VR Controller',
+    summary: 'Novel actuator drivers for texture simulation.',
+    tags: ['R&D', 'Hardware', 'Prototyping'],
+    thumbnail: 'https://images.unsplash.com/photo-1622979135225-d2ba269fb1bd?auto=format&fit=crop&q=80&w=1000',
+    category: 'Mechatronics',
+    snapshot: {
+      summary: 'Developing a VR controller that can simulate various textures through advanced haptic feedback.',
+      context: 'Research project for immersive virtual environments.',
+      role: 'Mechatronics Engineer',
+    },
+    problem: {
+      content: 'Standard VR controllers only provide basic vibration. Users lack the tactile sense of "texture" when interacting with virtual objects.'
+    },
+    constraints: {
+      content: 'Actuators needed to be small enough for a handheld controller but powerful enough for perceptible feedback.',
+      bulletPoints: [
+        'Weight limit of 200g per controller.',
+        'Frequency range of 10Hz to 1000Hz.',
+        'Sub-5ms response time.'
+      ]
+    },
+    decisions: {
+      content: 'We utilized Voice Coil Actuators (VCA) instead of traditional ERM motors to achieve higher precision and wider frequency response.',
+    },
+    solution: {
+      content: 'A custom driver circuit was developed to modulate the VCA at high frequencies, simulating textures like wood, metal, and fabric.',
+    },
+    impact: {
+      content: 'Achieved a "90% realism score" in double-blind user testing.',
+      bulletPoints: [
+        'New patent filing for the driver circuit.',
+        'Presented at major VR industry conference.',
+        'Low-cost manufacturing potential.'
+      ]
+    },
+    gallery: [
+      'https://images.unsplash.com/photo-1622979135225-d2ba269fb1bd?auto=format&fit=crop&q=80&w=1000'
+    ],
+    reflection: {
+      content: 'Hardware prototyping is a loop of failure and learning. The precision needed for haptics is incredibly demanding on both mechanical and electronic levels.'
     }
   }
 };
