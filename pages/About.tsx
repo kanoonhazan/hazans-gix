@@ -132,21 +132,6 @@ const About: React.FC = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-antiFlashWhite flex items-center mb-3">
               Technical Toolbox
             </h2>
-            <p className="text-caribbeanGreen/60 text-xs font-mono uppercase tracking-[0.3em] pl-1">
-              Cross-disciplinary Engineering Stack // Ver 4.0.2
-            </p>
-          </div>
-          <div className="flex items-center space-x-6">
-            <div className="hidden lg:flex flex-col items-end">
-              <span className="text-[10px] font-mono text-stone/40 uppercase tracking-tighter">System Core</span>
-              <span className="text-xs font-mono text-caribbeanGreen font-bold tracking-widest uppercase">Operational</span>
-            </div>
-            <div className="h-10 w-px bg-white/10 hidden lg:block"></div>
-            <div className="flex items-center space-x-3 text-[10px] font-mono text-caribbeanGreen/40">
-              <span className="animate-pulse">●</span>
-              <span>READY://STABLE</span>
-              <div className="w-1.5 h-1.5 bg-caribbeanGreen rounded-full shadow-[0_0_8px_rgba(0,204,153,0.8)]"></div>
-            </div>
           </div>
         </div>
 
