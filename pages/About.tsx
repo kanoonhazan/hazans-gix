@@ -11,11 +11,48 @@ const About: React.FC = () => {
     "Build systems people can trust"
   ];
 
-  const skills = [
-    { category: "Engineering", icon: Cpu, items: ["System Architecture", "Mechatronics", "Embedded Systems (C/C++)", "IoT Protocols (MQTT/CoAP)"] },
-    { category: "Web & Mobile", icon: Code, items: ["React / TypeScript", "React Native", "Node.js", "Tailwind CSS"] },
-    { category: "Product", icon: PenTool, items: ["UI/UX Strategy", "Prototyping (Figma)", "User Research", "Agile Management"] }
-  ];
+  const [activeTab, setActiveTab] = React.useState('Product Design (UX / UI)');
+
+  const toolboxData = {
+    'Product Design (UX / UI)': {
+      icon: PenTool,
+      description: 'Engineering-led design focusing on high-density information architecture and safety-critical HMI.',
+      stats: [
+        { label: 'Usability Standards', value: 'IEC 62366' },
+        { label: 'Prototyping Speed', value: 'High-Fidelity' },
+      ],
+      methodologies: ['Heuristic Evaluation', 'Atomic Design Systems', 'User Journey Mapping', 'Cognitive Walkthrough'],
+      techStack: ['Figma (Advanced)', 'Protopie', 'Storybook', 'Adobe Suite'],
+      focus: 'Human-Machine Interface (HMI)',
+      highlight: 'Specializing in reducing cognitive load for operators in high-stress, safety-critical environments.'
+    },
+    'Mechatronics & Automation': {
+      icon: Cpu,
+      description: 'Low-latency control systems and hardware-software integration for industrial robotics.',
+      stats: [
+        { label: 'Control Latency', value: '< 10ms' },
+        { label: 'Protocols', value: 'CAN, EtherCAT' },
+      ],
+      methodologies: ['PID Control Tuning', 'Finite State Machines', 'Sensor Fusion (Kalman)', 'DFM/DFA'],
+      techStack: ['C/C++ (Embedded)', 'SolidWorks', 'Altium Designer', 'ROS2'],
+      focus: 'Distributed Robotics Fleet',
+      highlight: 'Resolving traffic orchestration and deadlock issues in warehouse automation through decentralized logic.'
+    },
+    'Software & Mobile Apps': {
+      icon: Code,
+      description: 'Building resilient, distributed architectures that handle high concurrency and real-time data.',
+      stats: [
+        { label: 'Architecture', value: 'Micro-services' },
+        { label: 'Data Sync', value: 'WebSockets' },
+      ],
+      methodologies: ['TDD / BDD', 'CI/CD Pipelines', 'REST/GraphQL Design', 'Cloud-Native Scalability'],
+      techStack: ['React / Next.js', 'TypeScript', 'Node.js (Bun)', 'PostgreSQL / Redis'],
+      focus: 'High-Performance Systems',
+      highlight: 'Developing secure, scalable foundations for hardware-integrated software and mobile platforms.'
+    }
+  };
+
+  const categories = Object.keys(toolboxData) as Array<keyof typeof toolboxData>;
 
   return (
     <div className="pt-24 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -86,37 +123,118 @@ const About: React.FC = () => {
         </div>
       </div>
 
-      {/* Technical Proficiency Grid */}
+      {/* Technical Proficiency Playground */}
       <div className="mb-32 opacity-0 animate-fade-in-up delay-300">
-        <div className="flex items-center justify-between mb-12 border-b border-darkGreen pb-6">
+        <div className="flex flex-col md:flex-row items-center justify-between mb-12 border-b border-white/10 pb-8 gap-6">
           <h2 className="text-3xl font-bold text-antiFlashWhite flex items-center">
             <Database className="w-6 h-6 mr-3 text-caribbeanGreen" /> Technical Toolbox
           </h2>
-          <span className="hidden md:block text-stone font-mono text-sm">STACK_OVERVIEW</span>
+
+          <div className="flex bg-darkGreen/20 p-1.5 rounded-full border border-white/5 backdrop-blur-md">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveTab(cat)}
+                className={`px-6 py-2 rounded-full text-[13px] font-bold tracking-wide transition-all duration-500 whitespace-nowrap ${activeTab === cat
+                    ? 'bg-caribbeanGreen text-richBlack shadow-lg shadow-caribbeanGreen/20 scale-105'
+                    : 'text-stone/60 hover:text-antiFlashWhite'
+                  }`}
+              >
+                {cat.split(' (')[0].toUpperCase()}
+              </button>
+            ))}
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {skills.map((skillGroup, idx) => (
-            <div key={skillGroup.category} className="bg-richBlack/50 border border-darkGreen/50 rounded-2xl p-8 hover:border-caribbeanGreen/50 hover:bg-darkGreen/10 transition-all duration-300 group">
-              <div className="flex items-center mb-6 text-antiFlashWhite font-bold text-xl">
-                <div className="p-3 bg-darkGreen/30 rounded-lg mr-4 group-hover:text-caribbeanGreen transition-colors">
-                  <skillGroup.icon className="w-6 h-6" />
+        {/* Tab Content: Flexible Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 transition-all duration-500">
+
+          {/* Main Context Card */}
+          <div className="md:col-span-8 bg-gradient-to-br from-darkGreen/30 to-richBlack border border-white/5 rounded-[2.5rem] p-10 flex flex-col justify-between relative overflow-hidden group shadow-2xl">
+            <div className="absolute top-0 right-0 w-80 h-80 bg-caribbeanGreen/5 rounded-full blur-[120px]"></div>
+
+            <div className="relative z-10">
+              <div className="flex items-center space-x-5 mb-10">
+                <div className="p-4 bg-caribbeanGreen/10 rounded-2xl border border-caribbeanGreen/20">
+                  {React.createElement(toolboxData[activeTab as keyof typeof toolboxData].icon, { className: "w-8 h-8 text-caribbeanGreen" })}
                 </div>
-                {skillGroup.category}
+                <div>
+                  <h3 className="text-3xl font-bold text-antiFlashWhite mb-2">{activeTab}</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {toolboxData[activeTab as keyof typeof toolboxData].stats.map(stat => (
+                      <div key={stat.label} className="text-[10px] font-mono text-caribbeanGreen bg-caribbeanGreen/5 px-2.5 py-1 rounded-md border border-caribbeanGreen/10">
+                        {stat.label.toUpperCase()}: {stat.value}
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
-              <ul className="space-y-4">
-                {skillGroup.items.map(item => (
-                  <li key={item} className="text-stone flex items-center group-hover:text-antiFlashWhite transition-colors">
-                    <span className="w-1.5 h-1.5 bg-stone/30 rounded-full mr-3 group-hover:bg-caribbeanGreen transition-colors"></span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
+
+              <p className="text-2xl text-stone leading-relaxed mb-12 max-w-3xl">
+                {toolboxData[activeTab as keyof typeof toolboxData].description}
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
+                <div>
+                  <h4 className="text-xs font-mono uppercase tracking-[0.2em] text-caribbeanGreen mb-6">Core Methodologies</h4>
+                  <ul className="space-y-4">
+                    {toolboxData[activeTab as keyof typeof toolboxData].methodologies.map(m => (
+                      <li key={m} className="flex items-center text-antiFlashWhite/90 font-medium">
+                        <div className="w-1.5 h-1.5 bg-caribbeanGreen rounded-full mr-4 shadow-[0_0_8px_rgba(0,204,153,0.5)]"></div>
+                        {m}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="bg-white/5 rounded-3xl p-8 border border-white/5">
+                  <h4 className="text-xs font-mono uppercase tracking-[0.2em] text-stone/50 mb-4">Focus Outcome</h4>
+                  <p className="text-stone leading-relaxed text-lg">
+                    {toolboxData[activeTab as keyof typeof toolboxData].highlight}
+                  </p>
+                </div>
+              </div>
             </div>
-          ))}
+
+            <div className="relative z-10 mt-16 pt-8 border-t border-white/5 flex items-center justify-between">
+              <span className="text-stone/40 font-mono text-[10px] tracking-[0.3em] uppercase">Specialization Depth</span>
+              <span className="text-caribbeanGreen font-bold tracking-tight text-lg">{toolboxData[activeTab as keyof typeof toolboxData].focus}</span>
+            </div>
+          </div>
+
+          {/* Side Column: Stack & Insight */}
+          <div className="md:col-span-4 flex flex-col gap-6">
+            <div className="bg-richBlack border border-white/10 rounded-[2.5rem] p-10 flex flex-col group hover:border-caribbeanGreen/30 transition-all duration-500 shadow-xl flex-grow">
+              <h4 className="text-lg font-bold text-antiFlashWhite mb-8 flex items-center justify-between">
+                Production Stack
+                <div className="flex space-x-1.5">
+                  {[1, 2, 3].map(i => <div key={i} className={`w-1.5 h-1.5 rounded-full ${i === 1 ? 'bg-caribbeanGreen animate-pulse' : 'bg-white/10'}`}></div>)}
+                </div>
+              </h4>
+              <div className="space-y-3">
+                {toolboxData[activeTab as keyof typeof toolboxData].techStack.map(tech => (
+                  <div key={tech} className="flex items-center p-4 bg-white/5 rounded-2xl border border-transparent group-hover:border-white/5 group-hover:bg-darkGreen/10 transition-all">
+                    <span className="text-antiFlashWhite/75 font-medium">{tech}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-10 pt-8 border-t border-white/5">
+                <p className="text-sm text-stone/60 italic leading-relaxed">
+                  Prioritizing tools that offer the highest "Clarity-to-Complexity" ratio for the end operator.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-br from-darkGreen to-richBlack p-1 rounded-[2.5rem] shadow-2xl">
+              <div className="bg-richBlack rounded-[2.4rem] p-8">
+                <span className="text-[10px] font-mono text-caribbeanGreen uppercase tracking-widest block mb-4">Philosophy</span>
+                <p className="text-antiFlashWhite/80 text-sm leading-relaxed italic">
+                  "I build for those who need to understand the system at a glance, not just those who built it."
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-
 
       {/* CTA */}
       <div className="bg-gradient-to-br from-darkGreen to-richBlack border border-bangladeshGreen/30 rounded-3xl p-16 text-center opacity-0 animate-fade-in-up delay-500 shadow-2xl relative overflow-hidden group max-w-5xl mx-auto">
