@@ -42,7 +42,7 @@ const Home: React.FC = () => {
             <span className="text-antiFlashWhite">that connects hardware, code, & people.</span>
           </h2>
           <p className="text-lg md:text-xl text-stone max-w-2xl leading-relaxed">
-            I don’t just write software. I build complete systems—bridging <span className="text-antiFlashWhite font-medium border-b border-caribbeanGreen/30 pb-0.5">mechatronics</span>, <span className="text-antiFlashWhite font-medium border-b border-caribbeanGreen/30 pb-0.5">embedded logic</span>, and <span className="text-antiFlashWhite font-medium border-b border-caribbeanGreen/30 pb-0.5">human experience</span> to solve complex problems in the real world.
+            I don’t just write software. I build complete systems - bridging <span className="text-antiFlashWhite font-medium border-b border-caribbeanGreen/30 pb-0.5">mechatronics</span>, <span className="text-antiFlashWhite font-medium border-b border-caribbeanGreen/30 pb-0.5">embedded logic</span>, and <span className="text-antiFlashWhite font-medium border-b border-caribbeanGreen/30 pb-0.5">human experience</span> to solve complex problems in the real world.
           </p>
           <div className="flex flex-wrap gap-4 pt-6">
             <Link to="/work">
@@ -133,7 +133,7 @@ const Home: React.FC = () => {
             </div>
           </div>
           <div className="mt-8 pt-6 border-t border-bangladeshGreen/20 relative z-10">
-            <p className="text-antiFlashWhite font-medium text-lg opacity-80 group-hover:opacity-100 transition-opacity">Good products aren’t just usable—they’re understandable, scalable, and intentional.</p>
+            <p className="text-antiFlashWhite font-medium text-lg opacity-80 group-hover:opacity-100 transition-opacity">Good products aren’t just usable - they’re understandable, scalable, and intentional.</p>
           </div>
         </div>
 
