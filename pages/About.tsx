@@ -197,12 +197,12 @@ const About: React.FC = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Rail - Selection Console */}
-          <div className="lg:col-span-4 xl:col-span-3 lg:sticky lg:top-32 space-y-3 z-30">
+          <div className="lg:col-span-3 xl:col-span-2 lg:sticky lg:top-32 z-30">
             <div className="hidden lg:block mb-4">
-              <p className="text-[9px] font-mono text-stone/30 uppercase tracking-[0.4em] mb-4">Select Domain</p>
+              <p className="text-[9px] font-mono text-stone/30 uppercase tracking-[0.4em]">Select Domain</p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-3">
+            <div className="grid grid-cols-3 lg:grid-cols-1 gap-2 md:gap-3">
               {categories.map((cat) => {
                 const Icon = toolboxData[cat].icon;
                 const isActive = activeTab === cat;
@@ -210,24 +210,18 @@ const About: React.FC = () => {
                   <button
                     key={cat}
                     onClick={() => setActiveTab(cat)}
-                    className={`relative w-full text-left p-5 rounded-2xl border transition-all duration-500 group overflow-hidden ${isActive
+                    className={`relative w-full text-center p-3 md:p-5 rounded-xl md:rounded-2xl border transition-all duration-500 group overflow-hidden ${isActive
                       ? 'bg-caribbeanGreen/10 border-caribbeanGreen/40 shadow-lg shadow-caribbeanGreen/5'
                       : 'bg-richBlack/40 border-white/5 hover:border-white/10 text-stone hover:text-antiFlashWhite'
                       }`}
                   >
-                    {/* Active Indicator Bar */}
-                    <div className={`absolute left-0 top-0 bottom-0 w-1 bg-caribbeanGreen transition-transform duration-500 ${isActive ? 'scale-y-100' : 'scale-y-0'}`}></div>
-
-                    <div className="flex items-center space-x-4 relative z-10">
-                      <div className={`p-2.5 rounded-xl transition-all duration-500 ${isActive ? 'bg-caribbeanGreen text-richBlack ring-4 ring-caribbeanGreen/20' : 'bg-white/5 text-caribbeanGreen/60 group-hover:text-caribbeanGreen'
+                    <div className="flex flex-col items-center text-center space-y-2 md:space-y-3 relative z-10">
+                      <div className={`p-2 md:p-3 rounded-lg md:rounded-xl transition-all duration-500 ${isActive ? 'bg-caribbeanGreen text-richBlack ring-2 md:ring-4 ring-caribbeanGreen/20' : 'bg-white/5 text-caribbeanGreen/60 group-hover:text-caribbeanGreen'
                         }`}>
-                        <Icon className="w-5 h-5 flex-shrink-0" />
+                        <Icon className="w-5 h-5 md:w-6 md:h-6 flex-shrink-0" />
                       </div>
-                      <div className="flex-1 min-w-0">
-                        <span className={`block text-[11px] font-mono uppercase tracking-widest mb-1 transition-colors ${isActive ? 'text-caribbeanGreen' : 'text-stone/40'}`}>
-                          0{categories.indexOf(cat) + 1}
-                        </span>
-                        <h4 className={`text-sm md:text-base font-bold truncate transition-colors ${isActive ? 'text-antiFlashWhite' : 'text-stone/60 group-hover:text-stone'}`}>
+                      <div className="min-w-0">
+                        <h4 className={`text-[10px] md:text-xs font-bold leading-tight transition-colors ${isActive ? 'text-caribbeanGreen' : 'text-stone/60 group-hover:text-stone'}`}>
                           {cat.split(' (')[0].replace('Mechatronics & ', '').replace('Software & ', '').replace('Product ', '')}
                         </h4>
                       </div>
@@ -235,7 +229,7 @@ const About: React.FC = () => {
 
                     {/* Background Shine */}
                     {isActive && (
-                      <div className="absolute -right-4 -bottom-4 w-24 h-24 bg-caribbeanGreen/5 rounded-full blur-2xl"></div>
+                      <div className="absolute -right-4 -bottom-4 w-16 md:w-24 h-16 md:h-24 bg-caribbeanGreen/5 rounded-full blur-2xl"></div>
                     )}
                   </button>
                 );
@@ -244,7 +238,7 @@ const About: React.FC = () => {
           </div>
 
           {/* Right Area - Main Interface */}
-          <div className="lg:col-span-8 xl:col-span-9">
+          <div className="lg:col-span-9 xl:col-span-10">
             <div key={activeTab} className="animate-fade-in-blur transition-all duration-700">
               <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
 
@@ -372,7 +366,7 @@ const About: React.FC = () => {
         </div>
       </div>
 
-    </div>
+    </div >
   );
 };
 
