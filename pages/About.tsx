@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../components/Button';
-import { CheckCircle, Hexagon, Code, Cpu, PenTool, Database, User, Flag, Calendar, MapPin, Phone, Mail, MessageSquare, BookOpen } from 'lucide-react';
+import { CheckCircle, Hexagon, Code, Cpu, PenTool, Database, User, Flag, Calendar, MapPin, Phone, Mail, MessageSquare, BookOpen, Briefcase, Award } from 'lucide-react';
 
 const About: React.FC = () => {
   const principles = [
@@ -24,7 +24,12 @@ const About: React.FC = () => {
       methodologies: ['Heuristic Evaluation', 'Atomic Design Systems', 'User Journey Mapping', 'Cognitive Walkthrough'],
       techStack: ['Figma (Advanced)', 'Protopie', 'Storybook', 'Adobe Suite'],
       focus: 'Human-Machine Interface (HMI)',
-      highlight: 'Specializing in reducing cognitive load for operators in high-stress, safety-critical environments.'
+      highlight: 'Specializing in reducing cognitive load for operators in high-stress, safety-critical environments.',
+      experience: {
+        role: 'Ui/Ux Designer',
+        company: 'DiliMatrix',
+        period: 'Oct 2023 - May 2024'
+      }
     },
     'Mechatronics & Automation': {
       icon: Cpu,
@@ -36,7 +41,12 @@ const About: React.FC = () => {
       methodologies: ['PID Control Tuning', 'Finite State Machines', 'Sensor Fusion (Kalman)', 'DFM/DFA'],
       techStack: ['C/C++ (Embedded)', 'SolidWorks', 'Altium Designer', 'ROS2'],
       focus: 'Distributed Robotics Fleet',
-      highlight: 'Resolving traffic orchestration and deadlock issues in warehouse automation through decentralized logic.'
+      highlight: 'Resolving traffic orchestration and deadlock issues in warehouse automation through decentralized logic.',
+      experience: {
+        role: 'Intern - Autonomation',
+        company: 'MAS Intimates',
+        period: 'Jun 2025 - Dec 2025'
+      }
     },
     'Software & Mobile Apps': {
       icon: Code,
@@ -48,7 +58,12 @@ const About: React.FC = () => {
       methodologies: ['TDD / BDD', 'CI/CD Pipelines', 'REST/GraphQL Design', 'Cloud-Native Scalability'],
       techStack: ['React / Next.js', 'TypeScript', 'Node.js (Bun)', 'PostgreSQL / Redis'],
       focus: 'High-Performance Systems',
-      highlight: 'Developing secure, scalable foundations for hardware-integrated software and mobile platforms.'
+      highlight: 'Developing secure, scalable foundations for hardware-integrated software and mobile platforms.',
+      experience: {
+        role: 'Associate Software Engineer',
+        company: 'DiliMatrix',
+        period: 'Aug 2024 - May 2025'
+      }
     }
   };
 
@@ -163,25 +178,37 @@ const About: React.FC = () => {
         </div>
       </div>
 
-      {/* Principles Section */}
+      {/* Engineering Philosophy Section */}
       <div className="mb-20 md:mb-32 opacity-0 animate-fade-in-up delay-300">
-        <h2 className="text-2xl md:text-3xl font-bold text-antiFlashWhite mb-8 md:mb-12 flex items-center justify-center">
-          <Hexagon className="w-5 h-5 md:w-6 md:h-6 mr-3 text-caribbeanGreen" /> Principles I Work By
-        </h2>
-        <div className="grid md:grid-cols-2 gap-4 md:gap-6 max-w-5xl mx-auto">
-          {principles.map((principle, idx) => (
-            <div key={idx} className="bg-gradient-to-br from-darkGreen/20 to-richBlack p-6 md:p-8 rounded-2xl border border-darkGreen/50 hover:border-caribbeanGreen/40 hover:translate-y-[-4px] transition-all duration-300 flex items-start group relative overflow-hidden shadow-lg">
-              <div className="absolute inset-0 bg-caribbeanGreen/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              <span className="text-4xl md:text-5xl font-bold text-darkGreen/30 absolute right-4 bottom-4 group-hover:text-caribbeanGreen/10 transition-colors">{idx + 1}</span>
+        <div className="max-w-6xl mx-auto bg-gradient-to-br from-darkGreen/10 to-richBlack p-10 rounded-[2.5rem] border border-white/5 relative overflow-hidden group shadow-2xl">
+          <div className="relative z-10">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-10">
+              <div className="space-y-6 md:max-w-[40%] text-left">
+                <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-caribbeanGreen/10 border border-caribbeanGreen/20 mb-2">
+                  <Hexagon className="w-3 h-3 text-caribbeanGreen" />
+                  <span className="text-[10px] font-mono text-caribbeanGreen uppercase tracking-widest">Engineering Philosophy</span>
+                </div>
+                <h3 className="text-3xl md:text-4xl font-extrabold text-antiFlashWhite leading-tight">
+                  Principles <br />
+                  <span className="text-caribbeanGreen">I Work By</span>
+                </h3>
+              </div>
 
-              <div className="relative z-10 flex items-start">
-                <CheckCircle className="w-5 h-5 md:w-6 md:h-6 text-mountainMeadow mr-3 md:mr-4 shrink-0 mt-1 group-hover:text-caribbeanGreen transition-colors" />
-                <span className="text-lg md:text-xl text-stone font-medium group-hover:text-white transition-colors leading-relaxed">{principle}</span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 flex-1">
+                {principles.map((principle, idx) => (
+                  <div key={idx} className="bg-white/5 border border-white/5 p-5 rounded-2xl flex items-start space-x-4 hover:bg-white/10 transition-all">
+                    <CheckCircle className="w-5 h-5 text-caribbeanGreen mt-1 shrink-0" />
+                    <span className="text-sm md:text-base text-stone/80 font-medium leading-snug">{principle}</span>
+                  </div>
+                ))}
               </div>
             </div>
-          ))}
+          </div>
+          {/* Background Accent */}
+          <div className="absolute -left-10 -bottom-10 w-64 h-64 bg-caribbeanGreen/5 rounded-full blur-[80px] pointer-events-none"></div>
         </div>
       </div>
+
 
       {/* THE PLAYGROUND - Technical Domains */}
       <div className="mb-20 md:mb-32 opacity-0 animate-fade-in-up delay-300 relative">
@@ -339,6 +366,40 @@ const About: React.FC = () => {
                     <span className="text-caribbeanGreen/40 mr-2">SYS_MSG:</span>
                     Optimizing for high-performance distributed systems and industrial-grade reliability. All sectors nominal.
                   </p>
+                </div>
+
+                {/* Experience Card */}
+                <div className="md:col-span-6 bg-gradient-to-br from-darkGreen/20 to-richBlack p-8 rounded-[2rem] border border-white/5 relative overflow-hidden group hover:border-caribbeanGreen/30 transition-all">
+                  <div className="relative z-10">
+                    <div className="flex items-center space-x-4 mb-6">
+                      <div className="p-2.5 bg-caribbeanGreen/10 rounded-xl text-caribbeanGreen">
+                        <Briefcase className="w-5 h-5" />
+                      </div>
+                      <h3 className="text-lg font-bold text-antiFlashWhite uppercase tracking-wider">Experience</h3>
+                    </div>
+                    <div className="space-y-1">
+                      <p className="text-antiFlashWhite font-bold text-base">{toolboxData[activeTab as keyof typeof toolboxData].experience.role}</p>
+                      <p className="text-caribbeanGreen/80 font-medium text-sm">{toolboxData[activeTab as keyof typeof toolboxData].experience.company}</p>
+                      <p className="text-stone/40 font-mono text-[10px] uppercase tracking-widest pt-2">
+                        {toolboxData[activeTab as keyof typeof toolboxData].experience.period}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Certifications Card */}
+                <div className="md:col-span-6 bg-gradient-to-br from-darkGreen/20 to-richBlack p-8 rounded-[2rem] border border-white/5 relative overflow-hidden group hover:border-caribbeanGreen/30 transition-all">
+                  <div className="relative z-10">
+                    <div className="flex items-center space-x-4 mb-6">
+                      <div className="p-2.5 bg-caribbeanGreen/10 rounded-xl text-caribbeanGreen">
+                        <Award className="w-5 h-5" />
+                      </div>
+                      <h3 className="text-lg font-bold text-antiFlashWhite uppercase tracking-wider">Certifications</h3>
+                    </div>
+                    <p className="text-sm text-stone/70 leading-relaxed">
+                      Mechatronics-focused academic training.
+                    </p>
+                  </div>
                 </div>
 
                 {/* 6. Philosophy Card - Long Bottom */}
