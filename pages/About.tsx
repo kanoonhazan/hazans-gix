@@ -124,25 +124,52 @@ const About: React.FC = () => {
       </div>
 
       {/* Technical Proficiency Playground */}
-      <div className="mb-20 md:mb-32 opacity-0 animate-fade-in-up delay-300">
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between mb-8 md:mb-12 border-b border-white/10 pb-8 gap-6">
-          <h2 className="text-2xl md:text-3xl font-bold text-antiFlashWhite flex items-center">
-            <Database className="w-6 h-6 mr-3 text-caribbeanGreen" /> Technical Toolbox
-          </h2>
+      <div className="mb-20 md:mb-32 opacity-0 animate-fade-in-up delay-300 relative">
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-white/10 pb-8 gap-4">
+          <div>
+            <h2 className="text-2xl md:text-3xl font-bold text-antiFlashWhite flex items-center mb-2">
+              <Database className="w-6 h-6 mr-3 text-caribbeanGreen" /> Technical Toolbox
+            </h2>
+            <p className="text-stone/60 text-sm font-mono uppercase tracking-widest">Cross-disciplinary Engineering Stack</p>
+          </div>
+          <div className="hidden lg:flex items-center space-x-4 text-[10px] font-mono text-caribbeanGreen/40">
+            <span>READY://STABLE</span>
+            <div className="w-2 h-2 bg-caribbeanGreen rounded-full animate-pulse"></div>
+          </div>
+        </div>
 
-          <div className="flex flex-col md:flex-row md:bg-darkGreen/20 md:p-1 md:rounded-full md:border md:border-white/5 md:backdrop-blur-md gap-2 md:gap-1 w-full lg:w-auto">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveTab(cat)}
-                className={`w-full md:w-auto px-6 py-3.5 md:py-2 rounded-xl md:rounded-full text-[13px] font-bold tracking-wide transition-all duration-300 whitespace-nowrap uppercase text-center active:scale-[0.97] hover:scale-[1.02] ${activeTab === cat
-                  ? 'bg-caribbeanGreen text-richBlack shadow-lg shadow-caribbeanGreen/20 ring-1 ring-caribbeanGreen/20'
-                  : 'bg-darkGreen/20 md:bg-transparent text-stone/60 hover:text-antiFlashWhite border border-white/5 md:border-0'
-                  }`}
-              >
-                {cat.split(' (')[0]}
-              </button>
-            ))}
+        {/* Console Switcher - Sticky */}
+        <div className="sticky top-24 z-30 mb-12 bg-richBlack/80 backdrop-blur-xl p-1.5 rounded-3xl border border-white/5 shadow-2xl">
+          <div className="grid grid-cols-3 gap-1.5">
+            {categories.map((cat, idx) => {
+              const Icon = toolboxData[cat].icon;
+              const isActive = activeTab === cat;
+              return (
+                <button
+                  key={cat}
+                  onClick={() => setActiveTab(cat)}
+                  className={`relative flex flex-col md:flex-row items-center justify-center md:justify-start gap-2 md:gap-4 p-3 md:p-4 rounded-2xl transition-all duration-500 group overflow-hidden ${isActive
+                      ? 'bg-caribbeanGreen text-richBlack'
+                      : 'hover:bg-white/5 text-stone active:scale-95'
+                    }`}
+                >
+                  <div className={`p-2 rounded-xl transition-colors shrink-0 ${isActive ? 'bg-richBlack/10' : 'bg-darkGreen/20 text-caribbeanGreen group-hover:bg-caribbeanGreen group-hover:text-richBlack'}`}>
+                    <Icon className="w-4 h-4 md:w-5 md:h-5" />
+                  </div>
+                  <div className="text-center md:text-left truncate">
+                    <span className="block text-[8px] md:text-[10px] font-mono opacity-50 leading-none mb-1 hidden sm:block">MODE_0{idx + 1}</span>
+                    <span className="text-[10px] md:text-[13px] font-bold uppercase tracking-tighter md:tracking-wider block truncate">
+                      {cat.split(' (')[0].replace('Mechatronics & ', '').replace('Software & ', '').replace('Product ', '')}
+                    </span>
+                  </div>
+
+                  {isActive && (
+                    <div className="absolute bottom-0 left-0 h-0.5 bg-black/20 animate-progress-mini"></div>
+                  )}
+                </button>
+              );
+            })}
           </div>
         </div>
 

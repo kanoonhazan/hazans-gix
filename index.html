@@ -38,6 +38,7 @@
             'fade-in-up': 'fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
             'fade-in': 'fadeIn 1s ease-out forwards',
             'fade-in-blur': 'fadeInBlur 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+            'progress-mini': 'progressMini 2s ease-in-out infinite',
             'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
           },
           keyframes: {
@@ -52,6 +53,11 @@
             fadeInBlur: {
               '0%': { opacity: '0', filter: 'blur(10px)', transform: 'scale(0.98)' },
               '100%': { opacity: '1', filter: 'blur(0)', transform: 'scale(1)' },
+            },
+            progressMini: {
+              '0%': { width: '0%', left: '0%' },
+              '50%': { width: '100%', left: '0%' },
+              '100%': { width: '0%', left: '100%' }
             }
           },
           spacing: {
