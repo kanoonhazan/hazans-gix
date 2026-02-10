@@ -126,144 +126,199 @@ const About: React.FC = () => {
       {/* Technical Proficiency Playground */}
       <div className="mb-20 md:mb-32 opacity-0 animate-fade-in-up delay-300 relative">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-white/10 pb-8 gap-4">
-          <div>
-            <h2 className="text-2xl md:text-3xl font-bold text-antiFlashWhite flex items-center mb-2">
-              <Database className="w-6 h-6 mr-3 text-caribbeanGreen" /> Technical Toolbox
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 border-b border-white/5 pb-10 gap-6">
+          <div className="relative">
+            <div className="absolute -left-4 top-0 w-1 h-12 bg-caribbeanGreen rounded-full hidden md:block"></div>
+            <h2 className="text-3xl md:text-4xl font-bold text-antiFlashWhite flex items-center mb-3">
+              Technical Toolbox
             </h2>
-            <p className="text-stone/60 text-sm font-mono uppercase tracking-widest">Cross-disciplinary Engineering Stack</p>
+            <p className="text-caribbeanGreen/60 text-xs font-mono uppercase tracking-[0.3em] pl-1">
+              Cross-disciplinary Engineering Stack // Ver 4.0.2
+            </p>
           </div>
-          <div className="hidden lg:flex items-center space-x-4 text-[10px] font-mono text-caribbeanGreen/40">
-            <span>READY://STABLE</span>
-            <div className="w-2 h-2 bg-caribbeanGreen rounded-full animate-pulse"></div>
+          <div className="flex items-center space-x-6">
+            <div className="hidden lg:flex flex-col items-end">
+              <span className="text-[10px] font-mono text-stone/40 uppercase tracking-tighter">System Core</span>
+              <span className="text-xs font-mono text-caribbeanGreen font-bold tracking-widest uppercase">Operational</span>
+            </div>
+            <div className="h-10 w-px bg-white/10 hidden lg:block"></div>
+            <div className="flex items-center space-x-3 text-[10px] font-mono text-caribbeanGreen/40">
+              <span className="animate-pulse">●</span>
+              <span>READY://STABLE</span>
+              <div className="w-1.5 h-1.5 bg-caribbeanGreen rounded-full shadow-[0_0_8px_rgba(0,204,153,0.8)]"></div>
+            </div>
           </div>
         </div>
 
-        {/* Console Switcher - Sticky */}
-        <div className="sticky top-[64px] z-40 mb-12 -mx-4 sm:-mx-6 lg:-mx-8 px-4 pointer-events-none">
-          <div className="max-w-6xl mx-auto pointer-events-auto">
-            <div className="bg-richBlack/50 backdrop-blur-2xl border border-white/10 rounded-full px-5 py-2.5 flex justify-between items-center shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5),0_0_20px_rgba(0,204,153,0.05)] ring-1 ring-white/5 relative overflow-hidden">
-              {/* Top Edge Shine */}
-              <div className="absolute top-0 left-10 right-10 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* Left Rail - Selection Console */}
+          <div className="lg:col-span-4 xl:col-span-3 lg:sticky lg:top-32 space-y-3 z-30">
+            <div className="hidden lg:block mb-4">
+              <p className="text-[9px] font-mono text-stone/30 uppercase tracking-[0.4em] mb-4">Select Domain</p>
+            </div>
 
-              <div className="grid grid-cols-3 gap-1 md:gap-1.5 w-full relative z-10">
-                {categories.map((cat, idx) => {
-                  const Icon = toolboxData[cat].icon;
-                  const isActive = activeTab === cat;
-                  return (
-                    <button
-                      key={cat}
-                      onClick={() => setActiveTab(cat)}
-                      className={`relative flex flex-row items-center justify-center md:justify-start gap-1.5 md:gap-4 px-3 md:px-5 py-2 rounded-full transition-all duration-500 group/link overflow-hidden ${isActive
-                        ? 'text-caribbeanGreen'
-                        : 'text-stone hover:text-antiFlashWhite'
-                        }`}
-                    >
-                      <div className={`p-1.5 rounded-lg transition-colors shrink-0 relative z-10 ${isActive ? 'bg-caribbeanGreen/10' : 'bg-darkGreen/20 text-caribbeanGreen group-hover/link:bg-caribbeanGreen group-hover/link:text-richBlack'}`}>
-                        <Icon className="w-3.5 h-3.5 md:w-5 md:h-5" />
+            <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-3">
+              {categories.map((cat) => {
+                const Icon = toolboxData[cat].icon;
+                const isActive = activeTab === cat;
+                return (
+                  <button
+                    key={cat}
+                    onClick={() => setActiveTab(cat)}
+                    className={`relative w-full text-left p-5 rounded-2xl border transition-all duration-500 group overflow-hidden ${isActive
+                      ? 'bg-caribbeanGreen/10 border-caribbeanGreen/40 shadow-lg shadow-caribbeanGreen/5'
+                      : 'bg-richBlack/40 border-white/5 hover:border-white/10 text-stone hover:text-antiFlashWhite'
+                      }`}
+                  >
+                    {/* Active Indicator Bar */}
+                    <div className={`absolute left-0 top-0 bottom-0 w-1 bg-caribbeanGreen transition-transform duration-500 ${isActive ? 'scale-y-100' : 'scale-y-0'}`}></div>
+
+                    <div className="flex items-center space-x-4 relative z-10">
+                      <div className={`p-2.5 rounded-xl transition-all duration-500 ${isActive ? 'bg-caribbeanGreen text-richBlack ring-4 ring-caribbeanGreen/20' : 'bg-white/5 text-caribbeanGreen/60 group-hover:text-caribbeanGreen'
+                        }`}>
+                        <Icon className="w-5 h-5 flex-shrink-0" />
                       </div>
-                      <div className="text-center md:text-left truncate relative z-10">
-                        <span className="block text-[8px] md:text-[10px] font-mono opacity-50 leading-none mb-0.5 hidden sm:block">MODE_0{idx + 1}</span>
-                        <span className="text-[11px] md:text-[13px] font-semibold uppercase tracking-[0.1em] block truncate">
-                          {cat.split(' (')[0].replace('Mechatronics & ', '').replace('Software & ', '').replace('Product ', '')}
+                      <div className="flex-1 min-w-0">
+                        <span className={`block text-[11px] font-mono uppercase tracking-widest mb-1 transition-colors ${isActive ? 'text-caribbeanGreen' : 'text-stone/40'}`}>
+                          0{categories.indexOf(cat) + 1}
                         </span>
+                        <h4 className={`text-sm md:text-base font-bold truncate transition-colors ${isActive ? 'text-antiFlashWhite' : 'text-stone/60 group-hover:text-stone'}`}>
+                          {cat.split(' (')[0].replace('Mechatronics & ', '').replace('Software & ', '').replace('Product ', '')}
+                        </h4>
                       </div>
+                    </div>
 
-                      {isActive && (
-                        <div className="absolute inset-0 bg-caribbeanGreen/10 border border-caribbeanGreen/20 rounded-full animate-fade-in"></div>
-                      )}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Tab Content: Flexible Bento Grid */}
-        <div key={activeTab} className="grid grid-cols-1 md:grid-cols-12 gap-6 transition-all duration-500 animate-fade-in-blur">
-
-          {/* Main Context Card */}
-          <div className="md:col-span-8 bg-gradient-to-br from-darkGreen/30 to-richBlack p-6 md:p-10 rounded-3xl md:rounded-[2.5rem] border border-white/5 flex flex-col justify-between relative overflow-hidden group shadow-2xl">
-            <div className="absolute top-0 right-0 w-80 h-80 bg-caribbeanGreen/5 rounded-full blur-[120px]"></div>
-
-            <div className="relative z-10">
-              <div className="flex flex-col sm:flex-row sm:items-center space-y-4 sm:space-y-0 sm:space-x-5 mb-8 md:mb-10">
-                <div className="p-4 bg-caribbeanGreen/10 rounded-2xl border border-caribbeanGreen/20 w-fit">
-                  {React.createElement(toolboxData[activeTab as keyof typeof toolboxData].icon, { className: "w-7 h-7 md:w-8 md:h-8 text-caribbeanGreen" })}
-                </div>
-                <div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-antiFlashWhite mb-2">{activeTab}</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {toolboxData[activeTab as keyof typeof toolboxData].stats.map(stat => (
-                      <div key={stat.label} className="text-[10px] font-mono text-caribbeanGreen bg-caribbeanGreen/5 px-2.5 py-1 rounded-md border border-caribbeanGreen/10">
-                        {stat.label.toUpperCase()}: {stat.value}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <p className="text-xl md:text-2xl text-stone leading-relaxed mb-8 md:mb-12 max-w-3xl">
-                {toolboxData[activeTab as keyof typeof toolboxData].description}
-              </p>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-10">
-                <div>
-                  <h4 className="text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] text-caribbeanGreen mb-4 md:mb-6">Core Methodologies</h4>
-                  <ul className="space-y-3 md:space-y-4">
-                    {toolboxData[activeTab as keyof typeof toolboxData].methodologies.map(m => (
-                      <li key={m} className="flex items-center text-antiFlashWhite/90 text-sm md:text-base font-medium">
-                        <div className="w-1.5 h-1.5 bg-caribbeanGreen rounded-full mr-4 shadow-[0_0_8px_rgba(0,204,153,0.5)]"></div>
-                        {m}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="bg-white/5 rounded-2xl md:rounded-3xl p-6 md:p-8 border border-white/5">
-                  <h4 className="text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] text-stone/50 mb-3 md:mb-4">Focus Outcome</h4>
-                  <p className="text-stone leading-relaxed text-base md:text-lg">
-                    {toolboxData[activeTab as keyof typeof toolboxData].highlight}
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="relative z-10 mt-10 md:mt-16 pt-6 md:pt-8 border-t border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <span className="text-stone/40 font-mono text-[9px] md:text-[10px] tracking-[0.3em] uppercase">Specialization Depth</span>
-              <span className="text-caribbeanGreen font-bold tracking-tight text-base md:text-lg">{toolboxData[activeTab as keyof typeof toolboxData].focus}</span>
+                    {/* Background Shine */}
+                    {isActive && (
+                      <div className="absolute -right-4 -bottom-4 w-24 h-24 bg-caribbeanGreen/5 rounded-full blur-2xl"></div>
+                    )}
+                  </button>
+                );
+              })}
             </div>
           </div>
 
-          {/* Side Column: Stack & Insight */}
-          <div className="md:col-span-4 flex flex-col gap-6">
-            <div className="bg-richBlack border border-white/10 rounded-3xl md:rounded-[2.5rem] p-6 md:p-10 flex flex-col group hover:border-caribbeanGreen/30 transition-all duration-500 shadow-xl min-h-[300px]">
-              <h4 className="text-lg font-bold text-antiFlashWhite mb-6 md:mb-8 flex items-center justify-between">
-                Production Stack
-                <div className="flex space-x-1.5">
-                  {[1, 2, 3].map(i => <div key={i} className={`w-1.5 h-1.5 rounded-full ${i === 1 ? 'bg-caribbeanGreen animate-pulse' : 'bg-white/10'}`}></div>)}
-                </div>
-              </h4>
-              <div className="grid grid-cols-2 md:grid-cols-1 gap-3">
-                {toolboxData[activeTab as keyof typeof toolboxData].techStack.map(tech => (
-                  <div key={tech} className="flex items-center p-3 md:p-4 bg-white/5 rounded-xl md:rounded-2xl border border-transparent group-hover:border-white/5 group-hover:bg-darkGreen/10 transition-all text-sm md:text-base">
-                    <span className="text-antiFlashWhite/75 font-medium truncate">{tech}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-8 md:mt-10 pt-6 md:pt-8 border-t border-white/5">
-                <p className="text-xs md:text-sm text-stone/60 italic leading-relaxed">
-                  Prioritizing tools that offer the highest "Clarity-to-Complexity" ratio for the end operator.
-                </p>
-              </div>
-            </div>
+          {/* Right Area - Main Interface */}
+          <div className="lg:col-span-8 xl:col-span-9">
+            <div key={activeTab} className="animate-fade-in-blur transition-all duration-700">
+              <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
 
-            <div className="bg-gradient-to-br from-darkGreen to-richBlack p-px rounded-3xl md:rounded-[2.5rem] shadow-2xl">
-              <div className="bg-richBlack rounded-[calc(1.5rem-1px)] md:rounded-[calc(2.5rem-1px)] p-6 md:p-8">
-                <span className="text-[9px] md:text-[10px] font-mono text-caribbeanGreen uppercase tracking-widest block mb-3 md:mb-4">Philosophy</span>
-                <p className="text-antiFlashWhite/80 text-xs md:text-sm leading-relaxed italic">
-                  "I build for those who need to understand the system at a glance, not just those who built it."
-                </p>
+                {/* Main Content Card - High Density Interface */}
+                <div className="xl:col-span-2 bg-gradient-to-br from-darkGreen/20 to-richBlack border border-white/5 p-8 md:p-12 rounded-[2.5rem] relative overflow-hidden group shadow-2xl">
+                  {/* Digital Grid Background */}
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_2px_2px,rgba(255,255,255,0.03)_1px,transparent_0)] bg-[length:24px_24px] pointer-events-none"></div>
+                  <div className="absolute top-0 right-0 w-full h-1/2 bg-gradient-to-b from-caribbeanGreen/5 to-transparent blur-3xl opacity-50"></div>
+
+                  {/* Corner Labels */}
+                  <div className="absolute top-6 right-8 text-[8px] font-mono text-caribbeanGreen/20 uppercase tracking-[0.3em] pointer-events-none hidden md:block">
+                    System.Config // Node_{activeTab ? activeTab.slice(0, 3).toUpperCase() : 'NULL'}
+                  </div>
+                  <div className="absolute bottom-6 right-8 text-[8px] font-mono text-white/5 uppercase tracking-[0.3em] pointer-events-none hidden md:block">
+                    Auth.Level_4 // Secure_Access
+                  </div>
+
+                  <div className="relative z-10">
+                    <div className="inline-flex items-center space-x-3 mb-10 px-4 py-2 bg-white/5 border border-white/5 rounded-full">
+                      <div className="w-2 h-2 rounded-full bg-caribbeanGreen animate-pulse"></div>
+                      <span className="text-[10px] font-mono tracking-widest uppercase text-caribbeanGreen/80">Active Configuration: {activeTab}</span>
+                    </div>
+
+                    <h3 className="text-3xl md:text-5xl font-extrabold text-antiFlashWhite mb-8 tracking-tight">
+                      {activeTab}
+                    </h3>
+
+                    <p className="text-xl md:text-2xl text-stone/90 leading-relaxed mb-12 max-w-4xl font-light">
+                      {toolboxData[activeTab as keyof typeof toolboxData].description}
+                    </p>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
+                      <div className="space-y-8">
+                        <div>
+                          <h4 className="text-[10px] font-mono uppercase tracking-[0.3em] text-caribbeanGreen mb-6 flex items-center">
+                            <span className="mr-3">01</span> Methodologies & Frameworks
+                          </h4>
+                          <div className="grid grid-cols-1 gap-4">
+                            {toolboxData[activeTab as keyof typeof toolboxData].methodologies.map((m, i) => (
+                              <div key={m} className="flex items-center text-antiFlashWhite group/item">
+                                <div className="w-8 h-px bg-caribbeanGreen/20 group-hover/item:bg-caribbeanGreen/60 transition-all duration-500 mr-4"></div>
+                                <span className="text-sm md:text-base font-medium opacity-80 group-hover/item:opacity-100 transition-opacity">{m}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="bg-richBlack/40 backdrop-blur-md rounded-3xl p-8 border border-white/5 relative group/focus">
+                        <div className="absolute -top-3 -right-3 w-12 h-12 bg-caribbeanGreen/10 rounded-full blur-xl group-hover/focus:bg-caribbeanGreen/20 transition-all"></div>
+                        <h4 className="text-[10px] font-mono uppercase tracking-[0.3em] text-stone/40 mb-6 flex items-center">
+                          <span className="mr-3 text-caribbeanGreen">02</span> Focus Outcome
+                        </h4>
+                        <p className="text-stone/80 leading-relaxed text-base md:text-lg italic font-light relative z-10">
+                          "{toolboxData[activeTab as keyof typeof toolboxData].highlight}"
+                        </p>
+                        <div className="mt-8 pt-8 border-t border-white/5">
+                          <div className="flex justify-between items-end">
+                            <div>
+                              <span className="block text-[10px] font-mono text-stone/30 uppercase tracking-widest mb-1">Impact Metric</span>
+                              <span className="text-caribbeanGreen font-bold text-xl">{toolboxData[activeTab as keyof typeof toolboxData].stats[0].value}</span>
+                            </div>
+                            <div className="text-right">
+                              <span className="block text-[10px] font-mono text-stone/30 uppercase tracking-widest mb-1">Specialization</span>
+                              <span className="text-antiFlashWhite/60 font-medium text-sm">{toolboxData[activeTab as keyof typeof toolboxData].focus}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Side Pane - Stack & Diagnostics */}
+                <div className="xl:col-span-1 flex flex-col gap-6">
+                  {/* Production Stack Card */}
+                  <div className="bg-richBlack border border-white/5 rounded-[2.5rem] p-8 flex flex-col flex-1 group hover:border-caribbeanGreen/20 transition-all duration-500 shadow-xl overflow-hidden relative">
+                    {/* Digital Scanning Effect */}
+                    <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-caribbeanGreen/30 to-transparent -translate-y-1 group-hover:translate-y-[500px] transition-transform duration-[3000ms] ease-in-out"></div>
+
+                    <div className="flex items-center justify-between mb-8">
+                      <h4 className="text-lg font-bold text-antiFlashWhite flex items-center">
+                        Production Stack
+                      </h4>
+                      <Code className="w-5 h-5 text-caribbeanGreen/40" />
+                    </div>
+
+                    <div className="space-y-2 mb-8">
+                      {toolboxData[activeTab as keyof typeof toolboxData].techStack.map(tech => (
+                        <div key={tech} className="flex items-center justify-between p-3.5 bg-white/5 rounded-xl border border-transparent hover:border-caribbeanGreen/10 hover:bg-caribbeanGreen/5 transition-all group/tech">
+                          <span className="text-antiFlashWhite/75 text-sm font-medium">{tech}</span>
+                          <div className="w-4 h-px bg-white/10 group-hover/tech:w-8 transition-all"></div>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="mt-auto">
+                      <div className="bg-darkGreen/10 rounded-2xl p-4 border border-darkGreen/20">
+                        <p className="text-[11px] text-stone/50 font-mono leading-relaxed">
+                          <span className="text-caribbeanGreen mr-2">LOG:</span> Optimizing for high-performance distributed systems and industrial reliability.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Philosophy Snippet */}
+                  <div className="bg-gradient-to-br from-caribbeanGreen/20 via-richBlack to-richBlack p-px rounded-[2rem]">
+                    <div className="bg-richBlack rounded-[calc(2rem-1px)] p-8">
+                      <div className="flex items-center space-x-3 mb-4">
+                        <div className="w-2 h-2 rounded-full bg-caribbeanGreen animate-ping"></div>
+                        <span className="text-[10px] font-mono text-caribbeanGreen uppercase tracking-[0.2em]">Engineering Philosophy</span>
+                      </div>
+                      <p className="text-antiFlashWhite/90 text-sm md:text-base leading-relaxed font-medium italic">
+                        "I build for those who need to understand the system at a glance, not just those who built it."
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </div>
           </div>

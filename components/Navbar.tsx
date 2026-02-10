@@ -25,7 +25,7 @@ const Navbar: React.FC = () => {
   return (
     <nav className="fixed top-3 left-0 right-0 z-50 px-4 pointer-events-none">
       <div className="max-w-6xl mx-auto pointer-events-none">
-        <div className="bg-richBlack/50 backdrop-blur-2xl border border-white/10 rounded-full px-5 py-2.5 flex justify-between items-center shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5),0_0_20px_rgba(0,204,153,0.05)] ring-1 ring-white/5 relative overflow-hidden pointer-events-auto">
+        <div className="bg-richBlack/50 backdrop-blur-2xl border border-white/10 rounded-full px-5 h-14 flex justify-between items-center shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5),0_0_20px_rgba(0,204,153,0.05)] ring-1 ring-white/5 relative overflow-hidden pointer-events-auto">
           {/* Top Edge Shine */}
           <div className="absolute top-0 left-10 right-10 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
 
