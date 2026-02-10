@@ -34,7 +34,7 @@ const Navbar: React.FC = () => {
               <img src="/images/favicon.png" alt="Logo" className="w-8 h-8 object-contain relative z-10 group-hover:scale-110 transition-transform duration-500" />
               <div className="absolute inset-0 bg-caribbeanGreen/30 blur-lg rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
-            <span className="font-bold tracking-tighter text-lg text-transparent bg-clip-text bg-gradient-to-r from-caribbeanGreen via-mint to-mountainMeadow group-hover:brightness-125 transition-all hidden sm:block">HAZAN'S GIX</span>
+            <span className="font-bold tracking-tighter text-sm sm:text-lg text-transparent bg-clip-text bg-gradient-to-r from-caribbeanGreen via-mint to-mountainMeadow group-hover:brightness-125 transition-all">HAZAN'S GIX</span>
           </NavLink>
 
           {/* Desktop Nav */}
