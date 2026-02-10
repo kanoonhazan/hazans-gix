@@ -7,7 +7,7 @@ export const PROJECTS: Project[] = [
     summary: 'Orchestrating 50+ AMR robots with sub-10ms latency for high-density warehouses.',
     tags: ['Mechatronics', 'System Architecture', 'Real-time'],
     thumbnail: 'https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&q=80&w=1000', // Industrial/Robotics
-    category: 'Mechatronics'
+    category: 'Mechatronics & Automation'
   },
   {
     id: 'medical-iot',
@@ -15,7 +15,7 @@ export const PROJECTS: Project[] = [
     summary: 'Redesigning the human-machine interface for critical care medical devices.',
     tags: ['UX/UI', 'Embedded', 'Safety Critical'],
     thumbnail: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=1000', // Medical/Clean
-    category: 'UI/UX Design'
+    category: 'Product Design (UX / UI)'
   },
   {
     id: 'smart-grid',
@@ -23,7 +23,7 @@ export const PROJECTS: Project[] = [
     summary: 'Peer-to-peer energy trading platform integrating solar hardware with blockchain ledger.',
     tags: ['Software', 'IoT', 'Blockchain'],
     thumbnail: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80&w=1000', // City/Grid/Night
-    category: 'Software Solutions'
+    category: 'Software & Mobile Apps'
   },
   {
     id: 'haptic-feedback',
@@ -31,7 +31,7 @@ export const PROJECTS: Project[] = [
     summary: 'Developing novel actuator drivers for realistic texture simulation in virtual environments.',
     tags: ['R&D', 'Hardware', 'Prototyping'],
     thumbnail: 'https://images.unsplash.com/photo-1622979135225-d2ba269fb1bd?auto=format&fit=crop&q=80&w=1000', // VR/Abstract
-    category: 'Mechatronics'
+    category: 'Mechatronics & Automation'
   }
 ];
 
@@ -42,7 +42,7 @@ export const CASE_STUDIES: Record<string, CaseStudyDetail> = {
     summary: 'Orchestrating 50+ AMR robots with sub-10ms latency.',
     tags: ['Mechatronics', 'System Architecture', 'Real-time'],
     thumbnail: 'https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&q=80&w=1000',
-    category: 'Mechatronics',
+    category: 'Mechatronics & Automation',
     snapshot: {
       summary: 'Designing a decentralized control system to eliminate deadlocks and reduce latency in high-density fulfillment centers.',
       context: 'This project focused on solving traffic orchestration issues for logistics operators within electrically noisy, high-density warehouse environments.',
@@ -93,7 +93,7 @@ export const CASE_STUDIES: Record<string, CaseStudyDetail> = {
     summary: 'Redesigning the human-machine interface for critical care.',
     tags: ['UX/UI', 'Embedded', 'Safety Critical'],
     thumbnail: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=1000',
-    category: 'UI/UX Design',
+    category: 'Product Design (UX / UI)',
     snapshot: {
       summary: 'Designing a context-aware interface to reduce dosing errors and improve nurse confidence in ICU settings.',
       context: 'This project focused on solving usability friction for ICU nurses and patients within strict IEC 62366 usability standards.',
@@ -139,7 +139,7 @@ export const CASE_STUDIES: Record<string, CaseStudyDetail> = {
     summary: 'Integrating solar hardware with blockchain ledger.',
     tags: ['Software', 'IoT', 'Blockchain'],
     thumbnail: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80&w=1000',
-    category: 'Software Solutions',
+    category: 'Software & Mobile Apps',
     snapshot: {
       summary: 'Building a peer-to-peer energy trading platform using distributed ledger technology.',
       context: 'Local energy communities looking to trade surplus solar power directly.',
@@ -183,7 +183,7 @@ export const CASE_STUDIES: Record<string, CaseStudyDetail> = {
     summary: 'Novel actuator drivers for texture simulation.',
     tags: ['R&D', 'Hardware', 'Prototyping'],
     thumbnail: 'https://images.unsplash.com/photo-1622979135225-d2ba269fb1bd?auto=format&fit=crop&q=80&w=1000',
-    category: 'Mechatronics',
+    category: 'Mechatronics & Automation',
     snapshot: {
       summary: 'Developing a VR controller that can simulate various textures through advanced haptic feedback.',
       context: 'Research project for immersive virtual environments.',

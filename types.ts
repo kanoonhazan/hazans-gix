@@ -4,7 +4,7 @@ export interface Project {
   summary: string;
   tags: string[];
   thumbnail?: string; // URL placeholder
-  category: 'UI/UX Design' | 'Mechatronics' | 'Software Solutions';
+  category: 'Product Design (UX / UI)' | 'Mechatronics & Automation' | 'Software & Mobile Apps';
 }
 
 export interface CaseStudySection {

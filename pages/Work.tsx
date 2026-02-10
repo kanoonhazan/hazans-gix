@@ -5,27 +5,27 @@ import { PROJECTS } from '../constants.ts';
 import { Project } from '../types';
 
 const CATEGORY_MAP: Record<string, string> = {
-  'ui-ux': 'UI/UX Design',
-  'mechatronics': 'Mechatronics',
-  'software': 'Software Solutions'
+  'product-design': 'Product Design (UX / UI)',
+  'mechatronics': 'Mechatronics & Automation',
+  'software': 'Software & Mobile Apps'
 };
 
 const REVERSE_MAP: Record<string, string> = {
-  'UI/UX Design': 'ui-ux',
-  'Mechatronics': 'mechatronics',
-  'Software Solutions': 'software'
+  'Product Design (UX / UI)': 'product-design',
+  'Mechatronics & Automation': 'mechatronics',
+  'Software & Mobile Apps': 'software'
 };
 
 const Work: React.FC = () => {
   const { category } = useParams<{ category: string }>();
   const navigate = useNavigate();
 
-  // Determine active category from URL or default to UI/UX
-  const activeCategoryName = CATEGORY_MAP[category || ''] || 'UI/UX Design';
+  // Determine active category from URL or default to Product Design
+  const activeCategoryName = CATEGORY_MAP[category || ''] || 'Product Design (UX / UI)';
 
   const filteredProjects = PROJECTS.filter(p => p.category === activeCategoryName);
 
-  const categories = ['UI/UX Design', 'Mechatronics', 'Software Solutions'];
+  const categories = ['Product Design (UX / UI)', 'Mechatronics & Automation', 'Software & Mobile Apps'];
 
   const handleCategoryClick = (cat: string) => {
     const slug = REVERSE_MAP[cat];

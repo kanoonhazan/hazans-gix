@@ -6,11 +6,11 @@ import { ArrowUpRight, Zap, Layers, Cpu, Activity, Code, GitMerge, Globe, Linked
 import Button from '../components/Button';
 
 const Home: React.FC = () => {
-  const [selectedCategory, setSelectedCategory] = React.useState<string>('UI/UX Design');
+  const [selectedCategory, setSelectedCategory] = React.useState<string>('Product Design (UX / UI)');
 
   const filteredProjects = PROJECTS.filter(p => p.category === selectedCategory);
 
-  const categories = ['UI/UX Design', 'Mechatronics', 'Software Solutions'];
+  const categories = ['Product Design (UX / UI)', 'Mechatronics & Automation', 'Software & Mobile Apps'];
 
   return (
     <div className="relative pt-24 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-hidden">
