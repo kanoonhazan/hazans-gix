@@ -189,7 +189,7 @@ const Home: React.FC = () => {
             </div>
 
             {/* Category Filter Buttons */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="grid grid-cols-3 gap-2 md:gap-4">
               {categories.map((cat) => {
                 const Icon = categoryIcons[cat];
                 const isActive = selectedCategory === cat;
@@ -197,18 +197,18 @@ const Home: React.FC = () => {
                   <button
                     key={cat}
                     onClick={() => setSelectedCategory(cat)}
-                    className={`relative w-full text-center p-3 md:p-5 rounded-xl md:rounded-2xl border transition-all duration-500 group overflow-hidden ${isActive
+                    className={`relative w-full p-2.5 md:p-5 rounded-xl md:rounded-2xl border transition-all duration-500 group overflow-hidden ${isActive
                       ? 'bg-caribbeanGreen/10 border-caribbeanGreen/40 shadow-lg shadow-caribbeanGreen/5'
                       : 'bg-richBlack/40 border-white/5 hover:border-white/10 text-stone hover:text-antiFlashWhite'
                       }`}
                   >
-                    <div className="flex flex-col items-center text-center space-y-2 md:space-y-3 relative z-10">
-                      <div className={`p-2 md:p-3 rounded-lg md:rounded-xl transition-all duration-500 ${isActive ? 'bg-caribbeanGreen text-richBlack ring-2 md:ring-4 ring-caribbeanGreen/20' : 'bg-white/5 text-caribbeanGreen/60 group-hover:text-caribbeanGreen'
+                    <div className="flex flex-col md:flex-row items-center text-center md:text-left space-y-2 md:space-y-0 md:space-x-4 relative z-10">
+                      <div className={`p-1.5 md:p-3 rounded-lg md:rounded-xl transition-all duration-500 ${isActive ? 'bg-caribbeanGreen text-richBlack ring-2 md:ring-4 ring-caribbeanGreen/20' : 'bg-white/5 text-caribbeanGreen/60 group-hover:text-caribbeanGreen'
                         }`}>
-                        <Icon className="w-5 h-5 md:w-6 md:h-6 flex-shrink-0" />
+                        <Icon className="w-4 h-4 md:w-6 md:h-6 flex-shrink-0" />
                       </div>
                       <div className="min-w-0">
-                        <h4 className={`text-[10px] md:text-xs font-bold leading-tight transition-colors ${isActive ? 'text-caribbeanGreen' : 'text-stone/60 group-hover:text-stone'}`}>
+                        <h4 className={`text-[10px] md:text-sm font-bold leading-tight transition-colors ${isActive ? 'text-caribbeanGreen' : 'text-stone/60 group-hover:text-stone'}`}>
                           {cat.split(' (')[0].replace('Mechatronics & ', '').replace('Software & ', '').replace('Product ', '')}
                         </h4>
                       </div>
