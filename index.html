@@ -73,11 +73,28 @@
 
     body {
       background-color: #020406;
-      background-image: radial-gradient(circle at 50% 0%, #011F14 0%, #020406 70%);
-      background-attachment: fixed;
       color: #F0F2F5;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
+      /* Promote body to its own compositor layer to avoid scroll repaint */
+      transform: translateZ(0);
+      /* Enable native fast touch scrolling on mobile */
+      touch-action: pan-y;
+    }
+
+    /* Fixed background using a pseudo-element so the browser composites it
+       on the GPU separately — identical look to background-attachment:fixed
+       but without forcing a CPU repaint on every scroll frame. */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-image: radial-gradient(circle at 50% 0%, #011F14 0%, #020406 70%);
+      /* Explicitly promote to its own GPU layer */
+      will-change: transform;
+      transform: translateZ(0);
+      pointer-events: none;
     }
 
     /* Custom Scrollbar */
@@ -118,6 +135,21 @@
 
     .delay-500 {
       animation-delay: 500ms;
+    }
+
+    /* GPU compositor promotion for decorative blur / glow orbs.
+       Apply this class to large blur elements to prevent them from
+       dirtying the main scroll repaint. */
+    .gpu-layer {
+      will-change: transform;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+    }
+
+    /* Scroll paint containment: tells the browser it can skip painting
+       content outside this element's bounds, reducing GPU overdraw. */
+    .scroll-contain {
+      contain: paint;
     }
   </style>
   <script type="importmap">

@@ -16,7 +16,7 @@ const Contact: React.FC = () => {
 
           {/* Contact Details Card */}
           <div className="bg-gradient-to-br from-darkGreen to-richBlack rounded-[2.5rem] p-10 border border-bangladeshGreen/30 opacity-0 animate-fade-in-up delay-100 shadow-2xl relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-caribbeanGreen/5 rounded-full blur-[100px] group-hover:bg-caribbeanGreen/10 transition-colors duration-500"></div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-caribbeanGreen/5 rounded-full blur-[100px] group-hover:bg-caribbeanGreen/10 transition-colors duration-500 gpu-layer"></div>
 
             <h3 className="text-2xl font-bold text-antiFlashWhite mb-8 relative z-10">Direct Reach</h3>
 
@@ -56,7 +56,7 @@ const Contact: React.FC = () => {
           {/* Socials & Agency Card */}
           <div className="flex flex-col gap-6">
             <div className="bg-richBlack rounded-[2.5rem] p-10 border border-darkGreen opacity-0 animate-fade-in-up delay-200 shadow-xl flex-grow group relative overflow-hidden">
-              <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-mountainMeadow/5 rounded-full blur-3xl group-hover:bg-mountainMeadow/10 transition-colors duration-500"></div>
+              <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-mountainMeadow/5 rounded-full blur-3xl group-hover:bg-mountainMeadow/10 transition-colors duration-500 gpu-layer"></div>
 
               <h3 className="text-2xl font-bold text-antiFlashWhite mb-8 relative z-10">Ecosystem</h3>
 

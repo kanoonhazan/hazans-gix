@@ -223,7 +223,7 @@ const About: React.FC = () => {
             </div>
           </div>
           {/* Background Accent */}
-          <div className="absolute -left-10 -bottom-10 w-64 h-64 bg-caribbeanGreen/5 rounded-full blur-[80px] pointer-events-none"></div>
+          <div className="absolute -left-10 -bottom-10 w-64 h-64 bg-caribbeanGreen/5 rounded-full blur-[80px] pointer-events-none gpu-layer"></div>
         </div>
       </div>
 

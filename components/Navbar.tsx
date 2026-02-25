@@ -23,7 +23,7 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className="fixed top-3 left-0 right-0 z-50 px-4 pointer-events-none">
+    <nav className="fixed top-3 left-0 right-0 z-50 px-4 pointer-events-none [will-change:transform]" style={{ transform: 'translateZ(0)' }}>
       <div className="max-w-6xl mx-auto pointer-events-none">
         <div className="bg-richBlack/50 backdrop-blur-2xl border border-white/10 rounded-full px-5 h-14 flex justify-between items-center shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5),0_0_20px_rgba(0,204,153,0.05)] ring-1 ring-white/5 relative overflow-hidden pointer-events-auto">
           {/* Top Edge Shine */}

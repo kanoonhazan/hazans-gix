@@ -2,7 +2,7 @@ import React from 'react';
 import { PROJECTS } from '../constants';
 import { Project } from '../types';
 import { Link } from 'react-router-dom';
-import { ArrowUpRight, Zap, Layers, Cpu, Activity, Code, GitMerge, Globe, Linkedin, Instagram, Facebook, MessageCircle } from 'lucide-react';
+import { ArrowUpRight, Zap, Layers, Cpu, Activity, Code, GitMerge, Globe, Linkedin, Instagram, Facebook, MessageCircle, PenTool } from 'lucide-react';
 import Button from '../components/Button';
 
 const Home: React.FC = () => {
@@ -12,6 +12,12 @@ const Home: React.FC = () => {
 
   const categories = ['Product Design (UX / UI)', 'Mechatronics & Automation', 'Software & Mobile Apps'];
 
+  const categoryIcons: Record<string, any> = {
+    'Product Design (UX / UI)': PenTool,
+    'Mechatronics & Automation': Cpu,
+    'Software & Mobile Apps': Code
+  };
+
   return (
     <div className="relative pt-24 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Subtle Background Grid for Technical Feel */}
@@ -20,8 +26,8 @@ const Home: React.FC = () => {
       </div>
 
       {/* Ambient Glows */}
-      <div className="absolute top-20 left-10 w-96 h-96 bg-caribbeanGreen/5 rounded-full blur-[128px] -z-10 animate-pulse-slow"></div>
-      <div className="absolute top-40 right-10 w-96 h-96 bg-bangladeshGreen/10 rounded-full blur-[128px] -z-10"></div>
+      <div className="absolute top-20 left-10 w-96 h-96 bg-caribbeanGreen/5 rounded-full blur-[128px] -z-10 animate-pulse-slow gpu-layer"></div>
+      <div className="absolute top-40 right-10 w-96 h-96 bg-bangladeshGreen/10 rounded-full blur-[128px] -z-10 gpu-layer"></div>
 
       {/* Hero Section */}
       <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 mb-32 items-center">
@@ -183,19 +189,38 @@ const Home: React.FC = () => {
             </div>
 
             {/* Category Filter Buttons */}
-            <div className="flex flex-wrap gap-3">
-              {categories.map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => setSelectedCategory(cat)}
-                  className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 border ${selectedCategory === cat
-                    ? 'bg-caribbeanGreen text-richBlack border-caribbeanGreen shadow-lg shadow-caribbeanGreen/20 scale-105'
-                    : 'bg-darkGreen/20 text-stone border-bangladeshGreen/30 hover:border-caribbeanGreen/50 hover:text-antiFlashWhite'
-                    }`}
-                >
-                  {cat}
-                </button>
-              ))}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {categories.map((cat) => {
+                const Icon = categoryIcons[cat];
+                const isActive = selectedCategory === cat;
+                return (
+                  <button
+                    key={cat}
+                    onClick={() => setSelectedCategory(cat)}
+                    className={`relative w-full text-center p-3 md:p-5 rounded-xl md:rounded-2xl border transition-all duration-500 group overflow-hidden ${isActive
+                      ? 'bg-caribbeanGreen/10 border-caribbeanGreen/40 shadow-lg shadow-caribbeanGreen/5'
+                      : 'bg-richBlack/40 border-white/5 hover:border-white/10 text-stone hover:text-antiFlashWhite'
+                      }`}
+                  >
+                    <div className="flex flex-col items-center text-center space-y-2 md:space-y-3 relative z-10">
+                      <div className={`p-2 md:p-3 rounded-lg md:rounded-xl transition-all duration-500 ${isActive ? 'bg-caribbeanGreen text-richBlack ring-2 md:ring-4 ring-caribbeanGreen/20' : 'bg-white/5 text-caribbeanGreen/60 group-hover:text-caribbeanGreen'
+                        }`}>
+                        <Icon className="w-5 h-5 md:w-6 md:h-6 flex-shrink-0" />
+                      </div>
+                      <div className="min-w-0">
+                        <h4 className={`text-[10px] md:text-xs font-bold leading-tight transition-colors ${isActive ? 'text-caribbeanGreen' : 'text-stone/60 group-hover:text-stone'}`}>
+                          {cat.split(' (')[0].replace('Mechatronics & ', '').replace('Software & ', '').replace('Product ', '')}
+                        </h4>
+                      </div>
+                    </div>
+
+                    {/* Background Shine */}
+                    {isActive && (
+                      <div className="absolute -right-4 -bottom-4 w-16 md:w-24 h-16 md:h-24 bg-caribbeanGreen/5 rounded-full blur-2xl"></div>
+                    )}
+                  </button>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -249,8 +274,8 @@ const Home: React.FC = () => {
         {/* Main CTA */}
         <div className="lg:col-span-8 bg-gradient-to-br from-darkGreen to-richBlack rounded-3xl p-8 md:p-12 border border-bangladeshGreen/30 relative overflow-hidden flex flex-col justify-center items-start shadow-2xl group">
           {/* Decor */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-caribbeanGreen/5 rounded-full blur-[100px] transform translate-x-1/3 -translate-y-1/3"></div>
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-bangladeshGreen/10 rounded-full blur-[80px]"></div>
+          <div className="absolute top-0 right-0 w-96 h-96 bg-caribbeanGreen/5 rounded-full blur-[100px] transform translate-x-1/3 -translate-y-1/3 gpu-layer"></div>
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-bangladeshGreen/10 rounded-full blur-[80px] gpu-layer"></div>
 
           <div className="relative z-10 max-w-2xl">
             <h2 className="text-3xl md:text-5xl font-bold text-antiFlashWhite mb-6 leading-tight">

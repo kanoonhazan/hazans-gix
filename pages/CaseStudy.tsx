@@ -219,8 +219,8 @@ const CaseStudy: React.FC = () => {
       <section className="mb-32 opacity-0 animate-fade-in-up delay-300 max-w-5xl mx-auto">
         <h2 className="text-caribbeanGreen font-mono text-sm uppercase tracking-widest mb-8 text-center">Closing Thoughts</h2>
         <div className="bg-bangladeshGreen/5 rounded-3xl p-10 md:p-16 border border-bangladeshGreen/20 relative overflow-hidden text-center">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-caribbeanGreen/5 rounded-full blur-[100px] transform translate-x-1/2 -translate-y-1/2"></div>
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-caribbeanGreen/5 rounded-full blur-[100px] transform -translate-x-1/2 translate-y-1/2"></div>
+          <div className="absolute top-0 right-0 w-64 h-64 bg-caribbeanGreen/5 rounded-full blur-[100px] transform translate-x-1/2 -translate-y-1/2 gpu-layer"></div>
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-caribbeanGreen/5 rounded-full blur-[100px] transform -translate-x-1/2 translate-y-1/2 gpu-layer"></div>
           <p className="text-stone text-xl md:text-2xl leading-relaxed relative z-10 font-medium">{project.reflection.content}</p>
         </div>
       </section>
